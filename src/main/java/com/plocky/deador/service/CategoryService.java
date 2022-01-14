@@ -5,6 +5,7 @@ import com.plocky.deador.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -22,5 +23,9 @@ public class CategoryService {
 
     public void addCategory(Category category) {
         categoryRepository.save(category);
+    }
+
+    public void removeCategoryById(int id) {
+        categoryRepository.deleteAllById(Collections.singleton(id));
     }
 }
