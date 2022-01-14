@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Optional;
+
 @Controller
 public class AdminController {
     @Autowired
@@ -42,6 +44,17 @@ public class AdminController {
     public String deleteCat(@PathVariable int id) {
         categoryService.removeCategoryById(id);
         return "redirect:/admin/categories";
+    }
+
+    @GetMapping("/admin/categories/update/{id}")
+    public String updateCat(@PathVariable int id, Model model) {
+        Optional<Category> category = categoryService.getCategoryById(id);
+        if (category.isPresent()) {
+            model.addAttribute("category", category.get());
+            return "categoriesAdd";
+        } else {
+            return "404";
+        }
     }
 
     @GetMapping("/admin/products")
