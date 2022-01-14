@@ -1,0 +1,1 @@
+DELETE FROM test WHERE test_field = 'text' OR test_field = 'not';
