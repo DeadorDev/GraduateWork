@@ -2,6 +2,7 @@ package com.plocky.deador.service;
 
 import com.plocky.deador.model.Category;
 import com.plocky.deador.repository.CategoryRepository;
+import com.plocky.deador.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 @Service
 public class CategoryService {
     CategoryRepository categoryRepository;
+    ProductService productService;
 
     @Autowired
     public CategoryService(CategoryRepository categoryRepository) {

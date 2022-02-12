@@ -1,5 +1,6 @@
 package com.plocky.deador.controller;
 
+import com.plocky.deador.global.GlobalData;
 import com.plocky.deador.model.Role;
 import com.plocky.deador.model.User;
 import com.plocky.deador.repository.RoleRepository;
@@ -27,6 +28,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login() {
+        GlobalData.cart.clear();
         return "/login";
     }
 

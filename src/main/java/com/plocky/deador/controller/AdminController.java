@@ -56,7 +56,11 @@ public class AdminController {
 
     @GetMapping("/admin/categories/delete/{id}")
     public String deleteCat(@PathVariable int id) {
-        categoryService.removeCategoryById(id);
+        if(productService.getAllProductsByCategoryId(id) != null && productService.getAllProductsByCategoryId(id).isEmpty()){
+            categoryService.removeCategoryById(id);
+        } else {
+            System.out.println("DeleteCategory ERROR.");
+        }
         return "redirect:/admin/categories";
     }
 
