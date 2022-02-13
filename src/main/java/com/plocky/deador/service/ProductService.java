@@ -34,4 +34,8 @@ public class ProductService {
         return productRepository.findAllByCategory_Id(id);
     }
 
+    public List<Product> getAllProductsByNameContains(String word) {
+        return productRepository.findAllByNameContaining(word);
+    }
+
 }

@@ -45,4 +45,9 @@ public class HomeController {
         model.addAttribute("cartCount", GlobalData.cart.size());
         return "/viewProduct";
     }
+
+//    @GetMapping("/shop/search/{word}")
+//    public String searchProduct(@PathVariable String word, Model model){
+//        return "/shop";
+//    }
 }
