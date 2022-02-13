@@ -2,6 +2,7 @@ package com.plocky.deador.controller;
 
 
 import com.plocky.deador.global.GlobalData;
+import com.plocky.deador.model.Product;
 import com.plocky.deador.service.CategoryService;
 import com.plocky.deador.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -46,8 +51,9 @@ public class HomeController {
         return "/viewProduct";
     }
 
-//    @GetMapping("/shop/search/{word}")
-//    public String searchProduct(@PathVariable String word, Model model){
-//        return "/shop";
-//    }
+    @RequestMapping("/search")
+    public String searchProduct(@RequestParam String keyword, Model model) {
+        model.addAttribute("products", productService.getAllProductsByNameContains(keyword));
+        return "/shop";
+    }
 }
