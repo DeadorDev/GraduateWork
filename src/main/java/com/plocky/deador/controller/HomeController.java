@@ -8,10 +8,7 @@ import com.plocky.deador.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -54,6 +51,13 @@ public class HomeController {
     @RequestMapping("/search")
     public String searchProduct(@RequestParam String keyword, Model model) {
         model.addAttribute("products", productService.getAllProductsByNameContains(keyword));
+        return "/shop";
+    }
+
+    @RequestMapping(value = "/sortByPrice", method = RequestMethod.GET)
+    public String sortProductsByPrice(@PathVariable(value = "id") int id, Model model) {
+        model.addAttribute("category", categoryService.getCategoryById(id));
+        model.addAttribute("products", productService.getAllProductsByCategoryIdOrderByPrice(id));
         return "/shop";
     }
 }

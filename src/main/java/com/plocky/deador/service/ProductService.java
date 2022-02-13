@@ -38,4 +38,12 @@ public class ProductService {
         return productRepository.findAllByNameContaining(keyword);
     }
 
+    public List<Product> getAllProductsByCategoryIdOrderByPrice(int id) {
+        return productRepository.findAllByCategory_IdOrderByPrice(id);
+    }
+
+    public List<Product> getAllProductsByCategoryIdOrderByPriceDesc(int id) {
+        return productRepository.findAllByCategory_IdOrderByPriceDesc(id);
+    }
+
 }
