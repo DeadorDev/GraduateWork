@@ -2,10 +2,12 @@ package com.plocky.deador.controller;
 
 
 import com.plocky.deador.global.GlobalData;
+import com.plocky.deador.model.PageUrlPrefix;
 import com.plocky.deador.model.Product;
 import com.plocky.deador.service.CategoryService;
 import com.plocky.deador.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,25 +21,83 @@ public class HomeController {
     @Autowired
     ProductService productService;
 
-    @GetMapping({"/", "/home"})
-    public String home(Model model) {
-        model.addAttribute("cartCount", GlobalData.cart.size());
-        return "/index";
-    }
+//    @GetMapping({"/", "/home"})
+//    public String home(Model model) {
+//        model.addAttribute("cartCount", GlobalData.cart.size());
+//        return findPaginated(1, "id", "asc", model);
+//    }
 
     @GetMapping("/shop")
     public String shop(Model model) {
-        model.addAttribute("categories", categoryService.getAllCategory());
-        model.addAttribute("products", productService.getAllProduct());
-        model.addAttribute("cartCount", GlobalData.cart.size());
-        return "/shop";
+        return shopFindPaginatedShop(1, "id", "desc", model);
     }
 
-    @GetMapping("/shop/category/{id}")
-    public String shopByCategory(@PathVariable int id, Model model) {
+
+    @GetMapping("/shop/page/{pageNo}")
+    public String shopFindPaginatedShop(@PathVariable(value = "pageNo") int pageNo,
+                                        @RequestParam("sortField") String sortField,
+                                        @RequestParam("sortDir") String sortDir,
+                                        Model model) {
+        int pageSize = 6;
+        PageUrlPrefix pageUrlPrefix = new PageUrlPrefix();
+        pageUrlPrefix.setPageUrlPrefixString("/shop");
+        Page<Product> page = productService.findPaginated(pageNo, pageSize, sortField, sortDir);
+        List<Product> listProducts = page.getContent();
+
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("cartCount", GlobalData.cart.size());
-        model.addAttribute("products", productService.getAllProductsByCategoryId(id));
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
+        model.addAttribute("listProducts", listProducts);
+        model.addAttribute("pageUrlPrefix", pageUrlPrefix);
+        return "/shop";
+
+
+    }
+
+    @GetMapping("/shop/category/{id}/page/{pageNo}")
+    public String shopByCategory(@PathVariable(value = "id") int id,
+                                 @PathVariable(value = "pageNo") int pageNo,
+                                 @RequestParam("sortField") String sortField,
+                                 @RequestParam("sortDir") String sortDir,
+                                 Model model) {
+        int pageSize = 6;
+        PageUrlPrefix pageUrlPrefix = new PageUrlPrefix();
+        pageUrlPrefix.setPageUrlPrefixString("/shop/category/" + id);
+
+        Page<Product> page = productService.findPaginatedInCategory(pageNo, pageSize, sortField, sortDir, id);
+        List<Product> listProducts = page.getContent();
+
+
+        System.out.println("PageNo = " + pageNo);
+        System.out.println("TotalPages = " + page.getTotalPages());
+        System.out.println("TotalItems = " + listProducts.size());
+        System.out.println("getTotalElements = " + page.getTotalElements());
+        for(Product product: listProducts){
+            System.out.print(product.getName() + "   ");
+        }
+
+
+        model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("cartCount", GlobalData.cart.size());
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", listProducts.size());
+
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
+        model.addAttribute("pageUrlPrefix", pageUrlPrefix);
+        model.addAttribute("listProducts", listProducts);
         return "/shop";
     }
 
@@ -48,16 +108,19 @@ public class HomeController {
         return "/viewProduct";
     }
 
-    @RequestMapping("/search")
-    public String searchProduct(@RequestParam String keyword, Model model) {
-        model.addAttribute("products", productService.getAllProductsByNameContains(keyword));
+
+    @GetMapping("/search")
+    public String searchProduct(@RequestParam("keyword") String keyword, Model model) {
+
+        model.addAttribute("listProducts", productService.getAllProductsByNameContains(keyword));
         return "/shop";
     }
 
-    @RequestMapping(value = "/sortByPrice", method = RequestMethod.GET)
-    public String sortProductsByPrice(@PathVariable(value = "id") int id, Model model) {
+    @RequestMapping(value = "/sortByPrice/{id}", method = RequestMethod.GET)
+    public String sortProductsByPrice(@RequestParam int id, Model model) {
         model.addAttribute("category", categoryService.getCategoryById(id));
         model.addAttribute("products", productService.getAllProductsByCategoryIdOrderByPrice(id));
         return "/shop";
     }
+
 }
