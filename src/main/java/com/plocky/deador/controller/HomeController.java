@@ -71,7 +71,6 @@ public class HomeController {
         int pageSize = 6;
         PageUrlPrefix pageUrlPrefix = new PageUrlPrefix();
         pageUrlPrefix.setPageUrlPrefixString("/shop/category/" + id);
-
         Page<Product> page = productService.findPaginatedInCategory(pageNo, pageSize, sortField, sortDir, id);
         List<Product> listProducts = page.getContent();
 
@@ -90,7 +89,7 @@ public class HomeController {
 
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", page.getTotalPages());
-        model.addAttribute("totalItems", listProducts.size());
+        model.addAttribute("totalItems", page.getTotalElements());
 
         model.addAttribute("sortField", sortField);
         model.addAttribute("sortDir", sortDir);
