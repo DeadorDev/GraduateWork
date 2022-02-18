@@ -30,23 +30,24 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
 
-                <form action="#" method="get" th:action="@{http://localhost:8080/search}">
+<!--                + '&sortField=' + ${sortField} + '&sortDir=' + ${reverseSortDir}       -->
+                <form action="#" method="get"
+                      th:action="@{'http://localhost:8080/search/page/1'}">
                     <input type="text" name="keyword"/>
+                    <input type="hidden" name="sortField" th:value="${sortField}">
+                    <input type="hidden" name="sortDir" th:value="${sortDir}">
                     <input type="submit" value="Search"/>
                 </form>
 
-
-                <select id="orderSelect" class="sortByPrice" th:method="get">
-                    <option selected value="ratingAsc">
-                        <a th:href="@{/shop}">Order by
-                            Rating Ascending </a>
+                <!--   <a th:href="@{'/page/' + ${currentPage} + '?sortField=price&sortDir=' + ${reverseSortDir}}"  -->
+                <select id="orderSelect" class="sorting" th:method="post">
+                    <option selected name="sortField" value="price">
+                        Order by Price Ascending
                     </option>
-                    <option value="ratingDesc">
-                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=price&sortDir=' + ${reverseSortDir}}">Order
-                            by Rating Descending</a>
+                    <option name="sortField" value="price">
+                        Order by Price Descending
                     </option>
                 </select>
-
 
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/}" href="#">Home</a>
@@ -116,19 +117,21 @@
             <div class="col-sm-2">
                 Total Rows: [[${totalItems}]]
             </div>
+            <!-- Numbers -->
             <div class="col-sm-1">
-     <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-      <a th:if="${currentPage != i}"
-         th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
-      <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
-     </span>
+                <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                    <a th:if="${currentPage != i}"
+                       th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                    <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+                </span>
             </div>
+            <!-- Next page -->
             <div class="col-sm-1">
                 <a th:if="${currentPage < totalPages}"
                    th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
                 <span th:unless="${currentPage < totalPages}">Next</span>
             </div>
-
+            <!-- Last page -->
             <div class="col-sm-1">
                 <a th:if="${currentPage < totalPages}"
                    th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>

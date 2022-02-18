@@ -66,4 +66,12 @@ public class ProductService {
         return this.productRepository.findAllByCategory_Id(categoryId, pageable);
     }
 
+    public Page<Product> findPaginatedInSearch(int pageNo, int pageSize, String sortField, String sortDirection, String keyword) {
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name())
+                ? Sort.by(sortField).ascending()
+                : Sort.by(sortField).descending();
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+        return this.productRepository.findAllByNameContaining(keyword, pageable);
+    }
+
 }
