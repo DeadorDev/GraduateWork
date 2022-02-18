@@ -14,6 +14,7 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, L
 
     Page<Product> findAllByCategory_Id(int categoryId, Pageable pageable);
 
+    Page<Product> findAllByNameContaining(String keyword, Pageable pageable);
 
     List<Product> findAllByCategory_Id(int id);
 

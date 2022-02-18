@@ -39,6 +39,15 @@ public class LoginController {
 
     @PostMapping("/register")
     public String registerPost(@ModelAttribute("user") User user, HttpServletRequest request) throws ServletException {
+        // Проверка на наличия пользователя в БД
+        String emailFromForm = user.getEmail();
+        User userFromDB = userRepository.findUserByEmailContains(emailFromForm);
+        if (!(userFromDB == null)) {
+            if (emailFromForm.equals(userFromDB.getEmail())) {
+                return "/register";
+            }
+        }
+        //
         String password = user.getPassword();
         user.setPassword(bCryptPasswordEncoder.encode(password));
         List<Role> roles = new ArrayList<>();

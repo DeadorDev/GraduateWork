@@ -75,15 +75,6 @@ public class HomeController {
         List<Product> listProducts = page.getContent();
 
 
-        System.out.println("PageNo = " + pageNo);
-        System.out.println("TotalPages = " + page.getTotalPages());
-        System.out.println("TotalItems = " + listProducts.size());
-        System.out.println("getTotalElements = " + page.getTotalElements());
-        for(Product product: listProducts){
-            System.out.print(product.getName() + "   ");
-        }
-
-
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("cartCount", GlobalData.cart.size());
 
@@ -108,10 +99,32 @@ public class HomeController {
     }
 
 
-    @GetMapping("/search")
-    public String searchProduct(@RequestParam("keyword") String keyword, Model model) {
+    @GetMapping("/search/page/{pageNo}")
+    public String searchProduct(@RequestParam(required = false, value = "keyword") String keyword,
+                                @PathVariable(value = "pageNo") int pageNo,
+                                @RequestParam("sortField") String sortField,
+                                @RequestParam("sortDir") String sortDir,
+                                Model model) {
+        int pageSize = 500;
+        PageUrlPrefix pageUrlPrefix = new PageUrlPrefix();
+        pageUrlPrefix.setPageUrlPrefixString("/search");
 
-        model.addAttribute("listProducts", productService.getAllProductsByNameContains(keyword));
+        Page<Product> page = productService.findPaginatedInSearch(pageNo, pageSize, sortField, sortDir, keyword);
+        List<Product> listProducts = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
+        model.addAttribute("pageUrlPrefix", pageUrlPrefix);
+
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("cartCount", GlobalData.cart.size());
+        model.addAttribute("listProducts", listProducts);
         return "/shop";
     }
 
