@@ -142,7 +142,10 @@
                                 </li>
                             </ul>
 
-                            <a th:href="@{/checkout}" h class="btn btn-primary btn-block waves-effect waves-light">go to
+                            <a th:if="${cartCount == 0}" th:href="@{/shop}" h class="btn btn-primary btn-block waves-effect waves-red">Go to
+                                shop</a>
+
+                            <a th:if="${cartCount} > 0" th:href="@{/checkout}" h class="btn btn-primary btn-block waves-effect waves-light">Go to
                                 checkout</a>
 
                         </div>

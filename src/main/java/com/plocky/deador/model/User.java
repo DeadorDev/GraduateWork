@@ -6,13 +6,15 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 @Table(name = "users")
+
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotEmpty
@@ -26,8 +28,11 @@ public class User {
     @Email(message = "{errors.invalid_email}")
     private String email;
 
-//    @NotEmpty
+    //    @NotEmpty
     private String password;
+
+    @OneToMany
+    private Set<Order> orders;
 
     public User() {
 

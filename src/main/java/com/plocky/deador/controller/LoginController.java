@@ -39,7 +39,7 @@ public class LoginController {
 
     @PostMapping("/register")
     public String registerPost(@ModelAttribute("user") User user, HttpServletRequest request) throws ServletException {
-        // Проверка на наличия пользователя в БД
+        // Checking if a user exists in the database
         String emailFromForm = user.getEmail();
         User userFromDB = userRepository.findUserByEmailContains(emailFromForm);
         if (!(userFromDB == null)) {
