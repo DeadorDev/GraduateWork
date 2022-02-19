@@ -106,7 +106,7 @@ public class AdminController {
             Path fileNameAndPath = Paths.get(uploadDir, imageUUID);
             Files.write(fileNameAndPath, file.getBytes());
         } else {
-            System.out.println("Error with reading.");
+            System.out.println("Error with reading image.");
             imageUUID = imgName;
         }
         product.setImageName(imageUUID);
