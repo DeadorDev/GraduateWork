@@ -5,6 +5,7 @@ import com.plocky.deador.global.GlobalData;
 import com.plocky.deador.model.Order;
 import com.plocky.deador.model.OrderItem;
 import com.plocky.deador.model.Product;
+import com.plocky.deador.model.User;
 import com.plocky.deador.repository.OrderItemRepository;
 import com.plocky.deador.repository.OrderRepository;
 import com.plocky.deador.repository.UserRepository;
@@ -16,10 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Controller
 public class CartController {
@@ -61,7 +58,7 @@ public class CartController {
     }
 
     @PostMapping("/checkout")
-    public String orderPost(@ModelAttribute("orderDTO")OrderDTO orderDTO){
+    public String orderPost(@ModelAttribute("orderDTO") OrderDTO orderDTO) {
         Order order = new Order();
         order.setId(orderDTO.getId());
         order.setFirstName(orderDTO.getFirstName());
@@ -75,11 +72,15 @@ public class CartController {
         order.setDeliveryStatus("Preparation");
         order.setTotalAmount((int) GlobalData.cart.stream().mapToDouble(Product::getPrice).sum());
         // --- USER (NOT WORKING) ---
+        User user = userRepository.findUserByEmailContains(orderDTO.getEmail());
+        if (user == null) {
+            return "redirect:/checkout";
+        }
         order.setUser(userRepository.findUserByEmail(orderDTO.getEmail()).get());
         // --- ORDER SAVE ---
         orderRepository.save(order);
         // --- ORDER ITEMS ---
-        for(Product product: GlobalData.cart){
+        for (Product product : GlobalData.cart) {
             OrderItem orderItem = new OrderItem();
             orderItem.setProduct(product);
             orderItem.setOrder(order);
@@ -90,9 +91,8 @@ public class CartController {
 
         GlobalData.cart.clear();
 
-        return "/shop";
+        return "redirect:/shop";
     }
-
 
 
 }

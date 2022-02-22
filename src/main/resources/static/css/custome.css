@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+.navbar-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 3em;
+    font-weight: 800;
+    color: white;
+}
+
+.navbar-brand {
+    margin-right: 50px !important;
+    margin-left: 30px !important;
+}
+
+.navbar-custome {
+    background-color: #221f1f !important;
+    padding: 0 !important;
+    z-index: 5;
+    top: 0;
+    position: sticky !important;
+}
+
+.search-input {
+    overflow: visible;
+    border: none !important;
+    border-radius: 4px;
+    height: 3.5vh;
+    width: 35vw;
+    background-color: white;
+}
+
+.button-search {
+    border: none !important;
+    border-radius: 4px;
+    background-color: white;
+    height: 3.5vh;
+    width: 2.5vw;
+}
+
+.button-search-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.navbar-icons {
+    color: white;
+    font-size: 2em;
+}
+
+.navbar-custome-count {
+    color: white !important;
+    font-size: 2em;
+}
+
+/* ----- CATEGORIES -------- */
+.categories-custome {
+    height: 600px;
+    top: 120px;
+    position: sticky !important;
+}
+
+.list-group-item {
+    border: none !important;
+    color: black;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+/*        */
+
+.pagination-numbers {
+    display: inherit !important;
+}
+
