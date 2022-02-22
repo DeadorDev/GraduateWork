@@ -11,4 +11,7 @@ public class GlobalData {
     static {
         cart = new ArrayList<Product>();
     }
+
+    public static String userName;
+    public static String userEmail;
 }
