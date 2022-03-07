@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .navbar-name {
     font-family: 'Rajdhani', sans-serif;
@@ -13,11 +14,15 @@
 }
 
 .navbar-custome {
-    background-color: #221f1f !important;
+    background-color: #221f1f;
     padding: 0 !important;
     z-index: 5;
     top: 0;
     position: sticky !important;
+
+    /*SMALL HEADER*/
+    height: 80px;
+
 }
 
 .search-input {
@@ -27,6 +32,7 @@
     height: 3.5vh;
     width: 35vw;
     background-color: white;
+    padding-left: 30px;
 }
 
 .button-search {
@@ -52,6 +58,10 @@
     font-size: 2em;
 }
 
+.navbar-button-menu {
+    background-color: white !important;
+}
+
 /* ----- CATEGORIES -------- */
 .categories-custome {
     height: 600px;
@@ -70,5 +80,82 @@
 
 .pagination-numbers {
     display: inherit !important;
+}
+
+/* ---- CART ---- */
+
+
+.cart-card {
+    border: none !important;
+}
+
+.cart-icons {
+    color: #FF5252;
+}
+
+.cart-title-p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    color: black;
+}
+
+.cart-title-product {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25em;
+    color: black;
+}
+
+.button-go-to-shop {
+    background-color: #CBCBCB !important;
+    border-color: #CBCBCB !important;
+}
+
+.button-cart-empty {
+    color: #fff;
+    background-color: #FF602E !important;
+    border-color: #FF602E !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+    width: 50% !important;
+}
+
+/* ---- CHECKOUT ---- */
+.card-checkout {
+    border-radius: 0.50rem !important;
+}
+
+.additional-information {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: 1px solid #B8B8B8;
+    border-radius: 0.50rem !important;
+}
+
+.checkout-font-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    color: black;
+}
+
+.checkout-font {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    color: black;
+}
+
+.total-amount-custome {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    color: #4F4F4F;
+}
+
+.button-checkout-submit {
+    color: #fff;
+    background-color: #FF602E !important;
+    border-color: #FF602E !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
 }
 
