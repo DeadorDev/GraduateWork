@@ -1,6 +1,139 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+input[type="submit"]:focus,
+.btn:focus,
+.btn-block:focus,
+.uneditable-input:focus {
+    border-color: rgba(255, 96, 46, 0.8);
+    box-shadow: 0 1px 1px rgba(255, 96, 46, 0.075) inset, 0 0 8px rgba(255, 96, 46, 0.6);
+    outline: 0 none;
+}
+
+.card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.card-father {
+    background-color: white;
+    border-radius: 15px !important;
+    padding: 15px !important;
+}
+
+.no-gutters {
+    flex-direction: column !important;
+    align-content: center;
+    flex-wrap: nowrap !important;
+    flex: 0 0 auto;
+    margin: auto;
+    align-items: center;
+
+}
+
+.card-content-text {
+    padding: 0 !important;
+}
+
+.categories-col {
+    padding: 15px;
+    border: none !important;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.list-group-item {
+    border: none !important;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.card-img {
+    margin: auto;
+}
+
+.card-title {
+    margin: 0 !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.card-body {
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 !important;
+}
+
+.card-shop {
+    overflow: hidden !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    box-shadow: #00000057 0px 3px 4px 0px;
+    background-color: #F4F4F9 !important;
+    flex-direction: column !important;
+}
+
+.empty-cart {
+    align-self: flex-start;
+}
+
+.cart-col {
+    display: flex;
+    flex-direction: column;
+    padding: 20px !important;
+}
+
+.cart-total {
+    padding: 20px !important;
+}
+
+.delete-icon {
+    margin: 0 !important;
+}
+
+.cart-inf {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.checkout-total {
+    position: sticky !important;
+    top: 90px;
+}
+
+.cart-count-shop {
+    align-items: center;
+}
+
 .navbar-name {
     font-family: 'Rajdhani', sans-serif;
     font-size: 3em;
@@ -55,26 +188,25 @@
 
 .navbar-custome-count {
     color: white !important;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .navbar-button-menu {
     background-color: white !important;
 }
 
+.card-link {
+    text-decoration: none !important;
+    color: black !important;
+}
+
 /* ----- CATEGORIES -------- */
 .categories-custome {
     height: 600px;
-    top: 120px;
+    top: 110px;
     position: sticky !important;
 }
 
-.list-group-item {
-    border: none !important;
-    color: black;
-    font-weight: 600;
-    text-decoration: none !important;
-}
 
 /*        */
 
@@ -108,6 +240,8 @@
 .button-go-to-shop {
     background-color: #CBCBCB !important;
     border-color: #CBCBCB !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
 }
 
 .button-cart-empty {
@@ -117,7 +251,9 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1.2em !important;
     width: 50% !important;
+    align-self: center;
 }
+
 
 /* ---- CHECKOUT ---- */
 .card-checkout {
@@ -169,6 +305,14 @@
     padding-top: 1%;
 }
 
+.login-col {
+    justify-content: center;
+}
+
+.google-icon {
+    margin-right: 5px;
+}
+
 .login-button {
     color: #fff;
     background-color: #FF602E !important;
@@ -217,5 +361,28 @@
     margin-top: 2%;
 }
 
+/* ---- REGISTER ---- */
+.register-button {
+    color: #fff;
+    background-color: #FF602E !important;
+    border-color: #FF602E !important;
+    border-radius: 10px !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3em !important;
+    margin-bottom: 2%;
+}
+
+.register-col {
+    display: flex;
+    justify-content: center;
+}
+
+.register-link {
+    margin-bottom: 10px !important;
+}
+
+.register-sec {
+    font-size: 1em;
+}
 
 

@@ -38,7 +38,7 @@ public class HomeController {
                                         @RequestParam("sortField") String sortField,
                                         @RequestParam("sortDir") String sortDir,
                                         Model model) {
-        int pageSize = 6;
+        int pageSize = 15;
         PageUrlPrefix pageUrlPrefix = new PageUrlPrefix();
         pageUrlPrefix.setPageUrlPrefixString("/shop");
         Page<Product> page = productService.findPaginated(pageNo, pageSize, sortField, sortDir);
