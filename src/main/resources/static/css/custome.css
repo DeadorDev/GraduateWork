@@ -19,9 +19,10 @@ input[type="color"]:focus,
 input[type="submit"]:focus,
 .btn:focus,
 .btn-block:focus,
+/*.md-textarea:focus,*/
 .uneditable-input:focus {
     border-color: rgba(255, 96, 46, 0.8);
-    box-shadow: 0 1px 1px rgba(255, 96, 46, 0.075) inset, 0 0 8px rgba(255, 96, 46, 0.6);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.125) inset, 0 0 8px rgba(255, 96, 46, 0.6);
     outline: 0 none;
 }
 
@@ -99,8 +100,48 @@ input[type="submit"]:focus,
     flex-direction: column !important;
 }
 
+/* ---- CART ---- */
+.cart-title-count {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em !important;
+    text-align: left;
+    font-weight: 600;
+}
+
 .empty-cart {
-    align-self: flex-start;
+    /*align-self: flex-start;*/
+}
+
+.cart-hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid rgba(79, 79, 79, .1);
+}
+
+.cart-right-col {
+    top: 12.5% !important;
+}
+
+.cart-right-col-ghost {
+    font-family: 'Poppins', sans-serif;
+    color: #4F4F4F;
+    font-size: 1.1em !important;
+    font-weight: 100 !important;
+}
+
+.cart-right-col-normal {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 1.1em !important;
+    font-weight: 550 !important;
+}
+
+.cart-total-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em !important;
+    font-weight: 500;
+    text-align: left;
 }
 
 .cart-col {
@@ -126,6 +167,8 @@ input[type="submit"]:focus,
 }
 
 .checkout-total {
+    padding: 25px;
+    border-radius: 0.5rem !important;
     position: sticky !important;
     top: 90px;
 }
@@ -207,8 +250,23 @@ input[type="submit"]:focus,
     position: sticky !important;
 }
 
+.categories-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}
 
-/*        */
+.categories-li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    color: black;
+    text-align: left;
+    font-weight: 500;
+    text-decoration: none !important;
+}
+
 
 .pagination-numbers {
     display: inherit !important;
@@ -220,6 +278,14 @@ input[type="submit"]:focus,
 .cart-card {
     border: none !important;
 }
+
+.cart-product-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    color: black;
+    text-align: right;
+}
+
 
 .cart-icons {
     color: #FF5252;
@@ -258,6 +324,7 @@ input[type="submit"]:focus,
 /* ---- CHECKOUT ---- */
 .card-checkout {
     border-radius: 0.50rem !important;
+    padding: 30px !important;
 }
 
 .additional-information {
@@ -273,12 +340,14 @@ input[type="submit"]:focus,
     font-family: 'Poppins', sans-serif;
     font-size: 1.5em;
     color: black;
+    text-align: left;
 }
 
 .checkout-font {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2em;
     color: black;
+    text-align: left;
 }
 
 .total-amount-custome {

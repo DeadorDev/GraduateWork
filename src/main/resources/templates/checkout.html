@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-custome">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"  th:href="@{/shop}">
+        <a class="navbar-brand" href="#" th:href="@{/shop}">
             <img th:src="@{/images/logo.svg}" src="../static/images/logo.svg" width="auto" height="80"
                  class="d-inline-block align-top" alt=""/>
             <span class="navbar-name">PLOCKY</span>
@@ -38,7 +38,7 @@
                 <form th:action="@{/checkout}" method="post" th:object="${orderDTO}"
                       enctype="multipart/form-data">
                     <!-- Card -->
-                    <div class="card wish-list pb-1 card-checkout">
+                    <div class="card wish-list card-checkout">
                         <div class="card-body">
 
 
@@ -137,7 +137,9 @@
                                           name="additionalInformation" class="md-textarea form-control"
                                           rows="4"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block waves-effect waves-light button-checkout-submit">Pay Now
+                            <button type="submit"
+                                    class="btn btn-primary btn-block waves-effect waves-light button-checkout-submit">
+                                Pay Now
                             </button>
 
                         </div>
@@ -157,22 +159,23 @@
                         <h5 class="mb-3 checkout-font-title">The total amount </h5>
 
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 total-amount-custome">
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 cart-right-col-ghost">
                                 Amount Payable
                                 <span>$<span th:text="${total}"></span></span>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center px-0 total-amount-custome">
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0 cart-right-col-ghost">
                                 Shipping
                                 <span>Bolming</span>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3 checkout-font">
+                            <hr class="cart-hr" align="center" width="90%" size="3" style="color: #4F4F4F"/>
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3 cart-right-col-normal">
                                 <div>
-                                    <strong>The total amount of</strong>
-                                    <strong>
-                                        <p class="mb-0">(including VAT)</p>
-                                    </strong>
+                                    <p>The total amount of</p>
+
+                                    <p class="mb-0" style="text-align: left">(including VAT)</p>
+
                                 </div>
-                                <span><strong>$<span th:text="${total}"></span></strong></span>
+                                <span>$<span th:text="${total}"></span></span>
                             </li>
                         </ul>
 
