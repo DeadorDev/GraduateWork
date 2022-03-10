@@ -184,6 +184,10 @@ input[type="submit"]:focus,
     color: white;
 }
 
+.navbar-nav-custome {
+    align-items: center;
+}
+
 .navbar-brand {
     margin-right: 50px !important;
     margin-left: 30px !important;
@@ -452,6 +456,63 @@ input[type="submit"]:focus,
 
 .register-sec {
     font-size: 1em;
+}
+
+/* ---- PERSONAL CABINET ---- */
+.personal-cabinet-user {
+    flex-direction: column;
+    background-color: white;
+    padding: 25px;
+    border-radius: 0.5rem !important;
+}
+
+.personal-cabinet-user-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em !important;
+    text-align: center;
+}
+
+.personal-cabinet-orders-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em !important;
+    text-align: left;
+}
+
+.personal-cabinet-user-info {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3em !important;
+    text-align: left;
+
+    border: 2px solid #272727;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.personal-cabinet-user-detail {
+
+}
+
+.personal-cabinet-orders {
+    flex-direction: column;
+    background-color: #F4F4F9;
+    padding: 25px;
+    border-radius: 0.5rem !important;
+}
+
+.personal-cabinet-exit {
+    color: #FF5252;
+    font-size: 1.5em;
+}
+
+.personal-cabinet-exit-link {
+    font-family: 'Poppins', sans-serif;
+    color: #FF5252;
+    font-size: 1.5em !important;
+    text-decoration: none;
+    margin-left: 1.5%;
 }
 
 

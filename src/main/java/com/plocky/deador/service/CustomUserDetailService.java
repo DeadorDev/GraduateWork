@@ -22,4 +22,36 @@ public class CustomUserDetailService implements UserDetailsService {
         user.orElseThrow(() -> new UsernameNotFoundException("User not found."));
         return user.map(CustomUserDetail::new).get();
     }
+
+//    DON'T WORK
+//    public String getCurrentUsername() {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+//            String currentUserName = authentication.getName();
+//            return currentUserName;
+//        } else {
+//            return null;
+//        }
+//    }
+//    public String getCurrentUsername() {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        return auth.getName();
+//    }
+//    и передать его в hibernate
+//
+//    public User getUserByUsername(String username) {
+//        CriteriaQuery<User> criteriaQuery = em.getCriteriaBuilder().createQuery(User.class);
+//        Root<User> userRequest = criteriaQuery.from(User.class);
+//
+//        Expression<String> exp = userRequest.get("username");
+//        Predicate predicate = exp.in(username);
+//
+//        criteriaQuery.where(predicate);
+//        try {
+//            return em.createQuery(criteriaQuery).getSingleResult();
+//        } catch (NoResultException e) {
+//            return new User();
+//        }
+//    }
+
 }
