@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns="http://www.w3.org/1999/html">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
 <head>
 
     <meta charset="UTF-8">
@@ -67,15 +67,10 @@
                 <!--                    </option>-->
                 <!--                </select>-->
 
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/personalCabinet}" href="#"><i class="bi bi-person-fill navbar-icons"></i></a>
+                </li>
 
-                <li class="nav-item active">
-                    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">
-                        <i class="bi bi-key-fill navbar-icons"></i></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"><i
-                            class="bi bi-door-open-fill navbar-icons"></i></a>
-                </li>
                 <li class="nav-item active">
                     <a class="nav-link " th:href="@{/cart}" href="#"> <i
                             class="bi bi-basket2-fill navbar-icons"></i></a>

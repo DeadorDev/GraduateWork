@@ -6,8 +6,11 @@ import com.plocky.deador.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderService {
+    @Autowired
     OrderRepository orderRepository;
     OrderItemRepository orderItemRepository;
     ProductService productService;
@@ -15,6 +18,10 @@ public class OrderService {
     @Autowired
     public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
+    }
+
+    public List<Order> getAllOrdersByEmail(String userEmail) {
+        return orderRepository.findAllByEmail(userEmail);
     }
 
 }

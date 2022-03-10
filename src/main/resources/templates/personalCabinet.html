@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -46,9 +46,6 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav navbar-nav-custome">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/personalCabinet}" href="#"><i class="bi bi-person-fill navbar-icons"></i></a>
-                </li>
-                <li class="nav-item active">
                     <a class="nav-link" th:href="@{/cart}" href="#"><i
                             class="bi bi-basket2-fill navbar-icons"></i></a>
                 </li>
@@ -60,23 +57,67 @@
         </div>
     </div>
 </nav>
+
+
 <div class="container mt-5">
     <div class="row">
-        <div class="col-sm-5 d-flex justify-content-center">
-            <img class="mt-5" height="300px" width="300px" src="" th:src="@{${'/productImages/' + product.imageName}}"
-                 alt="">
+
+
+        <div class="col-sm-5 d-flex justify-content-center personal-cabinet-user">
+            <div class="personal-cabinet-user-title"><p>Personal data</p></div>
+
+            <div class="personal-cabinet-user-info">
+                <div class="personal-cabinet-user-small">First name</div>
+                <span sec:authentication="principal.firstName" class="personal-cabinet-user-detail">First name</span>
+            </div>
+            <div class="personal-cabinet-user-info">
+                <span>Last name <span sec:authentication="principal.lastName">Last name</span></span>
+            </div>
+
+
+
+            <!---- DON'T WORK (need to read userEmail) ---->
+
+
+            <div class="personal-cabinet-user-info">
+                <span>Email
+                    <span sec:authentication="name">Email</span>
+                </span>
+            </div>
+
+            <div class="nav-item active">
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"><i
+                        class="bi bi-box-arrow-left personal-cabinet-exit"></i><span class="personal-cabinet-exit-link">EXIT</span></a>
+            </div>
+
         </div>
-        <div class="col-sm-7 mt-5">
-            <h2 th:text="${product.name}"></h2>
-            <p th:text="${product.category.name}"></p>
-            <h2>$ <span th:text="${product.price}"></span></h2>
-            <h5>Weight:
-                <spna th:text="${product.weight}"></spna>
-                grams.
-            </h5>
-            <p th:text="${product.description}"></p>
-            <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>
+
+        <div class="col-sm-7 personal-cabinet-orders">
+            <div class="personal-cabinet-orders-title"><p>My orders</p></div>
+
+            <div class="personal-cabinet-order-card" th:each="order : ${listOrders}">
+                <div class="card-title" th:text="${order.totalAmount}">Text</div>
+                <!--                <a href="#" th:href="@{'/shop/viewproduct/{id}'(id=${product.id})}" class="card-link">-->
+                <!--                    <div class="row no-gutters">-->
+                <!--                        <div class="col-sm-5 d-flex justify-content-center card-img">-->
+                <!--                            <img style="margin-bottom: 5px" width="150vw" height="150vh"-->
+                <!--                                 th:src="@{${'/productImages/' + product.imageName}}"-->
+                <!--                                 th:alt="${product.name}">-->
+                <!--                        </div>-->
+                <!--                        <div class="col-sm-7 d-flex justify-content-center card-content-text">-->
+                <!--                            <div class="card-body">-->
+                <!--                                <p class="card-title" th:text="${product.name}"></p>-->
+                <!--                                <p class="card-title" th:text="${'$' + product.price}"></p>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </a>-->
+
+            </div>
+
         </div>
+
+
     </div>
 </div>
 
