@@ -615,6 +615,7 @@ textarea:focus,
 .view-product-button-buy-now {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8em !important;
+    font-weight: 700;
     margin-right: 5%;
     color: #fff !important;
     background: linear-gradient(94.94deg, #FF4040 2.13%, #FFCA41 100%) !important;
@@ -629,6 +630,7 @@ textarea:focus,
     font-family: 'Poppins', sans-serif;
     font-size: 1.8em !important;
     color: black;
+    font-weight: 700;
     background-color: white !important;
     border-radius: 10px !important;
     text-decoration: none !important;
@@ -640,16 +642,51 @@ textarea:focus,
 .view-product-button-add-to-cart:hover {
     color: black;
 }
+
 /* --- About this item --- */
-.view-product-about-this-item-container{
+.view-product-about-this-item-container {
     background-color: white !important;
     border-radius: 10px !important;
     padding: 4%;
 }
 
+.view-product-image{
+    height: 50%;
+    position: sticky !important;
+    top: 10%;
+}
+
 .view-product-about-this-item-container-title {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5em !important;
+    font-weight: 500;
+}
+
+.view-product-about-this-item-container-inf{
+    display: flex;
+    flex-direction: row;
+}
+
+.view-product-about-this-item-container-inf-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.view-product-about-this-item-container-inf-right {
+
+}
+
+.view-product-about-this-item-container-inf-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+    font-weight: 600;
+    margin-top: 8%;
+}
+
+.view-product-about-this-item-container-inf-text-left {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em !important;
+    margin-bottom: 4%;
 }
 
 
