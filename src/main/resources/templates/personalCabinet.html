@@ -65,26 +65,23 @@
 
         <div class="col-sm-5 d-flex justify-content-center personal-cabinet-user">
             <div class="personal-cabinet-user-title"><p>Personal data</p></div>
+            <div class="personal-cabinet-user-container">
+                <div class="personal-cabinet-user-info">
+                    <div class="personal-cabinet-user-small">First name</div>
+                    <span sec:authentication="principal.firstName"
+                          class="personal-cabinet-user-detail">First name</span>
+                </div>
 
-            <div class="personal-cabinet-user-info">
-                <div class="personal-cabinet-user-small">First name</div>
-                <span sec:authentication="principal.firstName" class="personal-cabinet-user-detail">First name</span>
+                <div class="personal-cabinet-user-info">
+                    <div class="personal-cabinet-user-small">Last name</div>
+                    <span sec:authentication="principal.lastName" class="personal-cabinet-user-detail">Last name</span>
+                </div>
+
+                <div class="personal-cabinet-user-info">
+                    <div class="personal-cabinet-user-small-email">Email</div>
+                    <span sec:authentication="name" class="personal-cabinet-user-detail">Email</span>
+                </div>
             </div>
-            <div class="personal-cabinet-user-info">
-                <span>Last name <span sec:authentication="principal.lastName">Last name</span></span>
-            </div>
-
-
-
-            <!---- DON'T WORK (need to read userEmail) ---->
-
-
-            <div class="personal-cabinet-user-info">
-                <span>Email
-                    <span sec:authentication="name">Email</span>
-                </span>
-            </div>
-
             <div class="nav-item active">
                 <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"><i
                         class="bi bi-box-arrow-left personal-cabinet-exit"></i><span class="personal-cabinet-exit-link">EXIT</span></a>
@@ -93,26 +90,30 @@
         </div>
 
         <div class="col-sm-7 personal-cabinet-orders">
-            <div class="personal-cabinet-orders-title"><p>My orders</p></div>
+            <h1 class="personal-cabinet-orders-title">My orders</h1>
 
             <div class="personal-cabinet-order-card" th:each="order : ${listOrders}">
-                <div class="card-title" th:text="${order.totalAmount}">Text</div>
-                <!--                <a href="#" th:href="@{'/shop/viewproduct/{id}'(id=${product.id})}" class="card-link">-->
-                <!--                    <div class="row no-gutters">-->
-                <!--                        <div class="col-sm-5 d-flex justify-content-center card-img">-->
-                <!--                            <img style="margin-bottom: 5px" width="150vw" height="150vh"-->
-                <!--                                 th:src="@{${'/productImages/' + product.imageName}}"-->
-                <!--                                 th:alt="${product.name}">-->
-                <!--                        </div>-->
-                <!--                        <div class="col-sm-7 d-flex justify-content-center card-content-text">-->
-                <!--                            <div class="card-body">-->
-                <!--                                <p class="card-title" th:text="${product.name}"></p>-->
-                <!--                                <p class="card-title" th:text="${'$' + product.price}"></p>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </a>-->
+                <div class="card-title">
+                    <span th:text="${order.totalAmount}">Amount</span>
+<!--                    <span th:text="${orderItem.productId}">Product</span>-->
 
+
+                    <!--                <a href="#" th:href="@{'/shop/viewproduct/{id}'(id=${product.id})}" class="card-link">-->
+                    <!--                    <div class="row no-gutters">-->
+                    <!--                        <div class="col-sm-5 d-flex justify-content-center card-img">-->
+                    <!--                            <img style="margin-bottom: 5px" width="150vw" height="150vh"-->
+                    <!--                                 th:src="@{${'/productImages/' + product.imageName}}"-->
+                    <!--                                 th:alt="${product.name}">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-sm-7 d-flex justify-content-center card-content-text">-->
+                    <!--                            <div class="card-body">-->
+                    <!--                                <p class="card-title" th:text="${product.name}"></p>-->
+                    <!--                                <p class="card-title" th:text="${'$' + product.price}"></p>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                </a>-->
+                </div>
             </div>
 
         </div>

@@ -79,7 +79,7 @@
 
                     <!-- Card -->
                     <div class="mb-4 cart-title-count"><p>Cart (<span th:text="${cartCount}">0</span> items)</p></div>
-                    <div class="card wish-list mb-4 cart-card">
+                    <div class="wish-list mb-4 cart-card">
 
                         <div class="card-body cart-col">
 
@@ -105,13 +105,13 @@
                                 </div>
                                 <div class="col-md-7 col-lg-9 col-xl-9 cart-inf">
 
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between cart-price-row">
                                         <div>
                                             <h5 class="cart-title-product" th:text="${item.name}">Name of phone</h5>
                                             <!--                                                <p class="mb-2 text-uppercase small">Category: <span th:text="${item.category.name}"></span></p>-->
                                         </div>
                                         <div class="cart-product-price">
-                                            <p class="mb-0"><span>$<span th:text="${item.price}"></span></span></p>
+                                            <p class="mb-0 cart-title-product"><span>$<span th:text="${item.price}"></span></span></p>
                                         </div>
 
                                     </div>
@@ -137,7 +137,7 @@
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-lg-4">
+                <div class="col-lg-4 cart-total-col">
 
                     <!-- Card -->
                     <div class="card mb-4 cart-card cart-right-col">

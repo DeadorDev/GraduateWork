@@ -35,6 +35,12 @@ public class CartController {
         return "redirect:/shop";
     }
 
+    @GetMapping("/buyNow/{id}")
+    public String buyNow(@PathVariable int id) {
+        GlobalData.cart.add(productService.getProductById(id).get());
+        return "redirect:/cart";
+    }
+
     @GetMapping("/cart")
     public String cartGet(Model model) {
         model.addAttribute("cartCount", GlobalData.cart.size());
