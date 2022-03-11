@@ -46,12 +46,8 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav navbar-nav-custome">
                 <li class="nav-item active">
-                    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"><i
-                            class="bi bi-key-fill navbar-icons"></i></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"><i
-                            class="bi bi-door-open-fill navbar-icons"></i></a>
+                    <a class="nav-link" th:href="@{/personalCabinet}" href="#"><i
+                            class="bi bi-person-fill navbar-icons"></i></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/cart}" href="#"><i

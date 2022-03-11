@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
+      xmlns="http://www.w3.org/1999/html">
 <head>
 
     <meta charset="UTF-8">
@@ -68,11 +68,12 @@
                 <!--                </select>-->
 
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/personalCabinet}" href="#"><i class="bi bi-person-fill navbar-icons"></i></a>
+                    <a class="nav-link" th:href="@{/personalCabinet}" href="#"><i
+                            class="bi bi-person-fill navbar-icons"></i></a>
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link " th:href="@{/cart}" href="#"> <i
+                    <a class="nav-link nav-link-cart" th:href="@{/cart}" href="#"> <i
                             class="bi bi-basket2-fill navbar-icons"></i></a>
                 </li>
                 <li class="nav-item active">
@@ -125,34 +126,33 @@
             </div>
             <!-- PAGINATION -->
             <div th:if="${totalPages > 1}">
-                <div class="row col-sm-10">
+                <div class="row pagination-container">
+                    <div class="pagination-container-row">
+                        <!--      Total Rows       -->
+                        <!--            <div class="col-sm-2">-->
+                        <!--                Total Rows: [[${totalItems}]]-->
+                        <!--            </div>-->
 
-
-                    <!--      Total Rows       -->
-                    <!--            <div class="col-sm-2">-->
-                    <!--                Total Rows: [[${totalItems}]]-->
-                    <!--            </div>-->
-
-
-                    <!-- Numbers -->
-                    <div class="col-sm-1 pagination-numbers">
+                        <!-- Numbers -->
+                        <div class="pagination-numbers">
                 <span th:each="i: ${#numbers.sequence(1, totalPages)}">
                     <a th:if="${currentPage != i}"
                        th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
                     <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
                 </span>
-                    </div>
-                    <!-- Next page -->
-                    <div class="col-sm-1">
-                        <a th:if="${currentPage < totalPages}"
-                           th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
-                        <span th:unless="${currentPage < totalPages}">Next</span>
-                    </div>
-                    <!-- Last page -->
-                    <div class="col-sm-1">
-                        <a th:if="${currentPage < totalPages}"
-                           th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-                        <span th:unless="${currentPage < totalPages}">Last</span>
+                        </div>
+                        <!-- Next page -->
+                        <div class="col-sm-1">
+                            <a th:if="${currentPage < totalPages}"
+                               th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                            <span th:unless="${currentPage < totalPages}">Next</span>
+                        </div>
+                        <!-- Last page -->
+                        <div class="col-sm-1">
+                            <a th:if="${currentPage < totalPages}"
+                               th:href="@{${pageUrlPrefix.pageUrlPrefixString} + '/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                            <span th:unless="${currentPage < totalPages}">Last</span>
+                        </div>
                     </div>
                 </div>
             </div>
