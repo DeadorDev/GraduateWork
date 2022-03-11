@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class OrderService {
-    @Autowired
     OrderRepository orderRepository;
     OrderItemRepository orderItemRepository;
     ProductService productService;
