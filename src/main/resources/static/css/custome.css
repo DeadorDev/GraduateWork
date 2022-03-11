@@ -95,7 +95,7 @@ textarea:focus,
     overflow: hidden !important;
     border-radius: 10px !important;
     padding: 10px !important;
-    box-shadow: #00000057 0px 3px 4px 0px;
+    box-shadow: #0000002e 0px 3px 4px 0px;
     background-color: #F4F4F9 !important;
     flex-direction: column !important;
 }
@@ -186,7 +186,7 @@ textarea:focus,
 }
 
 .cart-count-shop {
-    align-items: center;
+    align-items: flex-end;
 }
 
 .navbar-name {
@@ -224,7 +224,7 @@ textarea:focus,
     height: 3.5vh;
     width: 35vw;
     background-color: white;
-    padding-left: 30px;
+    padding-left: 15px;
 }
 
 .button-search {
@@ -247,7 +247,8 @@ textarea:focus,
 
 .navbar-custome-count {
     color: white !important;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    padding-left: 0 !important;
 }
 
 .navbar-button-menu {
@@ -283,6 +284,24 @@ textarea:focus,
     text-decoration: none !important;
 }
 
+/*---- PAGINATION ----*/
+.pagination-container{
+    display: flex;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.pagination-container-row {
+    display: flex;
+    flex-direction: row;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: #00000020 0px 3px 4px 0px;
+    border-radius: 10px;
+    padding: 0.5em;
+}
 
 .pagination-numbers {
     display: inherit !important;
@@ -305,6 +324,10 @@ textarea:focus,
 
 .cart-icons {
     color: #FF5252;
+}
+
+.nav-link-cart {
+    padding-right: 0.3em !important;
 }
 
 .cart-one-product {
@@ -650,7 +673,7 @@ textarea:focus,
     padding: 4%;
 }
 
-.view-product-image{
+.view-product-image {
     height: 50%;
     position: sticky !important;
     top: 10%;
@@ -662,7 +685,7 @@ textarea:focus,
     font-weight: 500;
 }
 
-.view-product-about-this-item-container-inf{
+.view-product-about-this-item-container-inf {
     display: flex;
     flex-direction: row;
 }
@@ -670,10 +693,13 @@ textarea:focus,
 .view-product-about-this-item-container-inf-left {
     display: flex;
     flex-direction: column;
+    margin-right: 15%;
 }
 
 .view-product-about-this-item-container-inf-right {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .view-product-about-this-item-container-inf-title {
@@ -687,6 +713,13 @@ textarea:focus,
     font-family: 'Poppins', sans-serif;
     font-size: 1em !important;
     margin-bottom: 4%;
+}
+
+.view-product-about-this-item-container-inf-text-right {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em !important;
+    margin-bottom: 4%;
+    font-weight: 600;
 }
 
 

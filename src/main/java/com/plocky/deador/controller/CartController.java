@@ -32,13 +32,14 @@ public class CartController {
     @GetMapping("/addToCart/{id}")
     public String addToCart(@PathVariable int id) {
         GlobalData.cart.add(productService.getProductById(id).get());
-        return "redirect:/shop";
+        return "redirect:/cart";
     }
 
     @GetMapping("/buyNow/{id}")
     public String buyNow(@PathVariable int id) {
+        GlobalData.cart.clear();
         GlobalData.cart.add(productService.getProductById(id).get());
-        return "redirect:/cart";
+        return "redirect:/checkout";
     }
 
     @GetMapping("/cart")
