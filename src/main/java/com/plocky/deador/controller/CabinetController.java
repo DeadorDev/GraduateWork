@@ -14,7 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class CabinetController {
@@ -36,6 +38,16 @@ public class CabinetController {
                                      @AuthenticationPrincipal User user) {
         String email = user.getEmail();
         List<Order> listOrders = orderService.getAllOrdersByEmail(email);
+        List<OrderItem> listAllOrderItems = orderItemService.getAllOrderItems();
+        List<OrderItem> listOrderItemUser = new ArrayList<>();
+
+        for (OrderItem orderItem : listAllOrderItems) {
+            if (Objects.equals(orderItem.getOrder().getUser().getId(), user.getId())) {
+                listOrderItemUser.add(orderItem);
+            }
+        }
+
+        model.addAttribute("listOrderItems", listOrderItemUser);
         model.addAttribute("user", user);
         model.addAttribute("listOrders", listOrders);
         model.addAttribute("cartCount", GlobalData.cart.size());

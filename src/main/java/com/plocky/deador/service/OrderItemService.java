@@ -1,6 +1,5 @@
 package com.plocky.deador.service;
 
-import com.plocky.deador.model.Order;
 import com.plocky.deador.model.OrderItem;
 import com.plocky.deador.repository.OrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +16,8 @@ public class OrderItemService {
         this.orderItemRepository = orderItemRepository;
     }
 
-    public List<OrderItem> getAllProductsByOrder(Order order) {
-        return orderItemRepository.findAllByOrder(order);
+    public List<OrderItem> getAllOrderItems() {
+        return orderItemRepository.findAll();
     }
 
 }
