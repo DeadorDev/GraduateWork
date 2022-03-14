@@ -197,7 +197,7 @@ textarea:focus,
 }
 
 .navbar-nav-custome {
-    align-items: center;
+    align-items: flex-end;
 }
 
 .navbar-brand {
@@ -504,10 +504,13 @@ textarea:focus,
 
 /* ---- PERSONAL CABINET ---- */
 .personal-cabinet-user {
+    display: flex;
+    min-width: 40%;
     flex-direction: column;
     background-color: white;
-    padding: 25px;
+    padding: 1.5rem;
     border-radius: 0.5rem !important;
+    height: fit-content;
 }
 
 .personal-cabinet-user-container {
@@ -550,8 +553,9 @@ textarea:focus,
 
 .personal-cabinet-user-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5em !important;
+    font-size: 1.8em !important;
     text-align: center;
+    font-weight: 500;
 }
 
 .personal-cabinet-user-detail {
@@ -560,8 +564,10 @@ textarea:focus,
 
 .personal-cabinet-orders-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5em !important;
+    font-size: 1.8em !important;
     text-align: left;
+    margin-bottom: 1em;
+    font-weight: 600;
 }
 
 .personal-cabinet-user-info {
@@ -586,7 +592,6 @@ textarea:focus,
     display: flex;
     flex-direction: column;
     background-color: #F4F4F9;
-    padding: 25px;
     border-radius: 0.5rem !important;
 }
 
@@ -603,23 +608,57 @@ textarea:focus,
     margin-left: 1.5%;
 }
 
-.personal-cabinet-order-card {
+.personal-cabinet-order-card-container {
     background-color: white;
     padding: 25px;
     border-radius: 0.5rem !important;
     margin-bottom: 2em;
 }
 
-.personal-cabinet-orders-one-product{
+.personal-cabinet-order-all-items {
+
+}
+
+.personal-cabinet-order-details {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.3em;
+}
+
+.personal-cabinet-order-delivery-status {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    color: black;
+}
+
+.personal-cabinet-order-delivery-status-detail {
+    font-weight: 600;
+}
+
+.personal-cabinet-order-id {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    color: #4F4F4F;
+}
+
+.personal-cabinet-order-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    color: black;
+    font-weight: 600;
+}
+
+.personal-cabinet-orders-one-product {
+    margin-bottom: 1.5em;
+    display: flex;
 }
 
 .personal-cabinet-card-title {
 
 }
 
-.personal-cabinet-price-row{
+.personal-cabinet-price-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -668,7 +707,7 @@ textarea:focus,
     background: linear-gradient(94.94deg, #FF4040 2.13%, #FFCA41 100%) !important;
     border-radius: 10px !important;
     text-decoration: none !important;
-    padding: 1.5%;
+    padding: 2%;
     width: 50%;
     text-align: center;
 }
@@ -681,7 +720,7 @@ textarea:focus,
     background-color: white !important;
     border-radius: 10px !important;
     text-decoration: none !important;
-    padding: 1.5%;
+    padding: 2%;
     width: 50%;
     text-align: center;
 }
@@ -744,6 +783,66 @@ textarea:focus,
     font-size: 1em !important;
     margin-bottom: 4%;
     font-weight: 600;
+}
+
+/*---- ADMIN-HOME ----*/
+.admin-home-title-container {
+    padding: 3rem;
+    margin-bottom: 2rem;
+    background-color: white;
+}
+
+.admin-home-title-big {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 4em !important;
+    font-weight: 400;
+}
+
+.admin-home-title-small {
+    font-family: 'Poppins', sans-serif;
+    color: #5A5A5A;;
+    font-size: 1.7em !important;
+    font-weight: 300;
+}
+
+.admin-home-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.admin-home-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+    padding: 1.5em;
+}
+
+.admin-home-card-link {
+    color: #fff;
+    background-color: #FF602E !important;
+    border-color: #FF602E !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+}
+
+.admin-home-card-title{
+    font-family: 'Poppins', sans-serif;
+    color: black;;
+    font-size: 1.7em !important;
+    font-weight: 500;
+}
+
+.admin-home-card-text{
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 1.3em !important;
+    font-weight: 400;
 }
 
 
