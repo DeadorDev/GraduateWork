@@ -285,7 +285,7 @@ textarea:focus,
 }
 
 /*---- PAGINATION ----*/
-.pagination-container{
+.pagination-container {
     display: flex;
     padding: 0;
     list-style: none;
@@ -297,7 +297,7 @@ textarea:focus,
     display: flex;
     flex-direction: row;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid rgba(0, 0, 0, .125);
     box-shadow: #00000020 0px 3px 4px 0px;
     border-radius: 10px;
     padding: 0.5em;
@@ -583,6 +583,7 @@ textarea:focus,
 }
 
 .personal-cabinet-orders {
+    display: flex;
     flex-direction: column;
     background-color: #F4F4F9;
     padding: 25px;
@@ -600,6 +601,29 @@ textarea:focus,
     font-size: 1.3em !important;
     text-decoration: none;
     margin-left: 1.5%;
+}
+
+.personal-cabinet-order-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 0.5rem !important;
+    margin-bottom: 2em;
+}
+
+.personal-cabinet-orders-one-product{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.personal-cabinet-card-title {
+
+}
+
+.personal-cabinet-price-row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
 }
 
 /* ---- VIEW PRODUCT ---- */
