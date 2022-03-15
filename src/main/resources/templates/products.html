@@ -7,58 +7,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+    <link th:href="@{/css/custome.css}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+<body style="background-color: #F4F4F9">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custome" >
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img th:src="@{/images/logo.png}"  src="../static/images/logo.png" width="auto" height="40" class="d-inline-block align-top" alt=""/>
+        <a class="navbar-brand" href="#" th:href="@{/admin}">
+            <img th:src="@{/images/logo.svg}" src="../static/images/logo.svg" width="auto" height="80"
+                 class="d-inline-block align-top" alt=""/>
+            <span class="navbar-name">PLOCKY</span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto"></ul>
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/admin}" href="#">Admin-Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/logout}" href="#">Logout</a>
-                </li>
-
-            </ul>
-
-        </div>
     </div>
 </nav>
-<div class="container-fluid">
+<div class="container">
 
-    <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
+    <a th:href="@{/admin/products/add}" class="btn btn-primary admin-home-categories-button">Add Product</a>
     <table class="table">
-        <thead class="thead-light">
+        <thead class="admin-home-categories-table-title">
         <tr>
-            <th scope="col">SN</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Preview</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Update</th>
+            <th scope="col" class="admin-home-categories-table-text">№</th>
+            <th scope="col" class="admin-home-categories-table-text">Product Name</th>
+            <th scope="col" class="admin-home-categories-table-text">Category</th>
+            <th scope="col" class="admin-home-categories-table-text">Preview</th>
+            <th scope="col" class="admin-home-categories-table-text">Delete</th>
+            <th scope="col" class="admin-home-categories-table-text">Update</th>
         </tr>
         </thead>
         <tbody>
 
         <tr th:each="product, iStat : ${products}">
-            <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${product.name}">Larry</td>
-            <td th:text="${product.category.name}">Larry</td>
-            <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
+            <th scope="row" th:text="${iStat.index + 1}" class="admin-home-categories-info">1</th>
+            <td th:text="${product.name}" class="admin-home-categories-info">Bob</td>
+            <td th:text="${product.category.name}" class="admin-home-categories-info">Bob</td>
+            <td><img src="" height="150vh" width="150vw"  th:src="@{${'/productImages/' + product.imageName}}"></td>
 
-            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
-            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
+            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn admin-home-products-button-delete">Delete</a></td>
+            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn admin-home-products-button-update">Update</a></td>
 
         </tr>
         </tbody>
