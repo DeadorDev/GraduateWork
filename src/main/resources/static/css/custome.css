@@ -977,4 +977,36 @@ textarea:focus,
     color: white;
     width: 80%;
 }
+/*--- Products add ---*/
+.admin-home-products-add-container{
+    margin-top: 3rem;
+}
+
+.admin-products-add-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5em !important;
+    font-weight: 500 !important;
+    color: black;
+    text-align: center;
+}
+
+.admin-home-products-form {
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 1.5rem;
+}
+
+.admin-home-products-label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    color: black;
+}
+
+.admin-home-products-placeholder{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em !important;
+    font-weight: 400 !important;
+    color: #757575;
+}
 
