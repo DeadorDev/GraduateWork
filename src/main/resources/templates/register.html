@@ -53,6 +53,9 @@
                        name="password"
                        id="password">
             </div>
+            <div th:if="${param.error}" class="alert alert-error text-danger">
+                User with this email address is already registered.
+            </div>
 
             <input type="submit" value="Sign up" class="btn btn-primary btn-block register-button">
 

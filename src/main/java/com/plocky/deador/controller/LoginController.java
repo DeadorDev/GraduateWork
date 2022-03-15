@@ -42,10 +42,8 @@ public class LoginController {
         // Checking if a user exists in the database
         String emailFromForm = user.getEmail();
         User userFromDB = userRepository.findUserByEmailContains(emailFromForm);
-        if (!(userFromDB == null)) {
-            if (emailFromForm.equals(userFromDB.getEmail())) {
-                return "/register";
-            }
+        if (!(userFromDB == null) && emailFromForm.equals(userFromDB.getEmail())) {
+            return "/register";
         }
         //
         String password = user.getPassword();
