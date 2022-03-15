@@ -513,6 +513,10 @@ textarea:focus,
     height: fit-content;
 }
 
+.personal-cabinet-links {
+    text-decoration: none !important;
+}
+
 .personal-cabinet-user-container {
     margin-bottom: 50%;
 }
@@ -826,24 +830,115 @@ textarea:focus,
 .admin-home-card-link {
     color: #fff;
     background-color: #FF602E !important;
+    border-radius: 10px;
+    box-shadow: #00000020 0px 3px 4px 0px;
     border-color: #FF602E !important;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2em !important;
 }
 
-.admin-home-card-title{
+.admin-home-card-title {
     font-family: 'Poppins', sans-serif;
     color: black;;
     font-size: 1.7em !important;
     font-weight: 500;
 }
 
-.admin-home-card-text{
+.admin-home-card-text {
     font-family: 'Poppins', sans-serif;
     color: black;
     font-size: 1.3em !important;
     font-weight: 400;
 }
 
+/*--- Categories ---*/
+.admin-home-categories-button {
+    color: #fff;
+    background-color: #FF602E !important;
+    border-color: #FF602E !important;
+    border-radius: 10px;
+    box-shadow: #00000020 0px 3px 4px 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-home-categories-table-title {
+    background-color: white;
+}
+
+.admin-home-categories-table-text {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 1.3em !important;
+    font-weight: 550 !important;
+}
+
+.admin-home-categories-button-delete {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    background-color: #FF2424;
+    box-shadow: #00000020 0px 3px 4px 0px;
+    border-radius: 10px;
+    color: white;
+    width: 60%;
+}
+
+.admin-home-categories-button-update {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    background-color: #00BC22;
+    box-shadow: #00000020 0px 3px 4px 0px;
+    border-radius: 10px;
+    color: white;
+    width: 60%;
+}
+
+.admin-home-categories-info{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    color: black;
+}
+
+.admin-categories-add-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.admin-categories-add-button{
+    color: #fff;
+    background-color: #FF602E !important;
+    border-color: #FF602E !important;
+    border-radius: 10px;
+    box-shadow: #00000020 0px 3px 4px 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+}
+
+.admin-categories-add-title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-categories-add-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5em !important;
+    font-weight: 500 !important;
+    color: black;
+}
+
+.admin-categories-add-input{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    color: #757575;
+    border: none;
+}
 
 

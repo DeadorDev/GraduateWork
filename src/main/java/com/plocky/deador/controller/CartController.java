@@ -11,6 +11,7 @@ import com.plocky.deador.repository.OrderRepository;
 import com.plocky.deador.repository.UserRepository;
 import com.plocky.deador.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -65,7 +66,8 @@ public class CartController {
     }
 
     @PostMapping("/checkout")
-    public String orderPost(@ModelAttribute("orderDTO") OrderDTO orderDTO) {
+    public String orderPost(@ModelAttribute("orderDTO") OrderDTO orderDTO,
+                            @AuthenticationPrincipal User authenticationUser) {
         Order order = new Order();
         order.setId(orderDTO.getId());
         order.setFirstName(orderDTO.getFirstName());
@@ -74,16 +76,12 @@ public class CartController {
         order.setTownCity(orderDTO.getTownCity());
         order.setAddress(orderDTO.getAddress());
         order.setPostcode(orderDTO.getPostcode());
-        order.setEmail(orderDTO.getEmail());
+        order.setEmail(authenticationUser.getEmail());
         order.setAdditionalInformation(orderDTO.getAdditionalInformation());
         order.setDeliveryStatus("Preparation");
         order.setTotalAmount((int) GlobalData.cart.stream().mapToDouble(Product::getPrice).sum());
         // --- USER (NOT WORKING) ---
-        User user = userRepository.findUserByEmailContains(orderDTO.getEmail());
-        if (user == null) {
-            return "redirect:/checkout";
-        }
-        order.setUser(userRepository.findUserByEmail(orderDTO.getEmail()).get());
+        order.setUser(authenticationUser);
         // --- ORDER SAVE ---
         orderRepository.save(order);
         // --- ORDER ITEMS ---
