@@ -1010,3 +1010,22 @@ textarea:focus,
     color: #757575;
 }
 
+.admin-home-products-about-item-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+    font-weight: 500 !important;
+    color: black;
+}
+
+.admin-home-products-about-item-title-other{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+    font-weight: 500 !important;
+    color: black;
+    margin-bottom: 1rem !important;
+}
+
+.products-add-input{
+    margin-bottom: 0 !important;
+}
+

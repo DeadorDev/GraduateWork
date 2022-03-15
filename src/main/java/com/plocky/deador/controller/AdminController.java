@@ -56,7 +56,7 @@ public class AdminController {
 
     @GetMapping("/admin/categories/delete/{id}")
     public String deleteCat(@PathVariable int id) {
-        if(productService.getAllProductsByCategoryId(id) != null && productService.getAllProductsByCategoryId(id).isEmpty()){
+        if (productService.getAllProductsByCategoryId(id) != null && productService.getAllProductsByCategoryId(id).isEmpty()) {
             categoryService.removeCategoryById(id);
         } else {
             System.out.println("DeleteCategory ERROR.");
@@ -98,8 +98,33 @@ public class AdminController {
         product.setName(productDTO.getName());
         product.setCategory(categoryService.getCategoryById(productDTO.getCategoryId()).get());
         product.setPrice(productDTO.getPrice());
+        product.setBrand(productDTO.getBrand());
+        product.setModel(productDTO.getModel());
+        product.setOperatingSystem(productDTO.getOperatingSystem());
+        product.setScreenSize(productDTO.getScreenSize());
+        product.setDisplayResolution(productDTO.getDisplayResolution());
+        product.setMatrixType(productDTO.getMatrixType());
+        product.setProcessor(productDTO.getProcessor());
+        product.setNumberOfCores(productDTO.getNumberOfCores());
+        product.setBattery(productDTO.getBattery());
+        product.setRam(productDTO.getRam());
+        product.setStorageCapacity(productDTO.getStorageCapacity());
+        product.setNumberOfMainCameras(productDTO.getNumberOfMainCameras());
+        product.setMainCameraResolution(productDTO.getMainCameraResolution());
+        product.setNumberOfFrontCameras(productDTO.getNumberOfFrontCameras());
+        product.setFrontCameraResolution(productDTO.getFrontCameraResolution());
+        product.setNumberOfSimCards(productDTO.getNumberOfSimCards());
+        product.setConnectivity(productDTO.getConnectivity());
+        product.setBluetooth(productDTO.getBluetooth());
+        product.setNfc(productDTO.getNfc());
         product.setWeight(productDTO.getWeight());
         product.setDescription(productDTO.getDescription());
+
+        product.setAction(productDTO.getAction());
+        product.setPriceBeforeAction(productDTO.getPriceBeforeAction());
+        product.setPriceAfterAction(productDTO.getPriceAfterAction());
+        product.setCountOfViews(productDTO.getCountOfViews());
+
         String imageUUID;
         if (!file.isEmpty()) {
             imageUUID = file.getOriginalFilename();
@@ -110,6 +135,8 @@ public class AdminController {
             imageUUID = imgName;
         }
         product.setImageName(imageUUID);
+
+
         productService.addProduct(product);
         return "redirect:/admin/products";
     }
@@ -128,9 +155,38 @@ public class AdminController {
         productDTO.setName(product.getName());
         productDTO.setCategoryId((product.getCategory().getId()));
         productDTO.setPrice(product.getPrice());
-        productDTO.setWeight((product.getWeight()));
+        productDTO.setBrand(product.getBrand());
+        productDTO.setModel(product.getModel());
+        productDTO.setOperatingSystem(product.getOperatingSystem());
+        productDTO.setScreenSize(product.getScreenSize());
+        productDTO.setDisplayResolution(product.getDisplayResolution());
+        productDTO.setMatrixType(product.getMatrixType());
+        productDTO.setProcessor(product.getProcessor());
+        productDTO.setNumberOfCores(product.getNumberOfCores());
+        productDTO.setBattery(product.getBattery());
+        productDTO.setRam(product.getRam());
+        productDTO.setStorageCapacity(product.getStorageCapacity());
+        productDTO.setNumberOfMainCameras(product.getNumberOfMainCameras());
+        productDTO.setMainCameraResolution(product.getMainCameraResolution());
+        productDTO.setNumberOfFrontCameras(product.getNumberOfFrontCameras());
+        productDTO.setFrontCameraResolution(product.getFrontCameraResolution());
+        productDTO.setNumberOfSimCards(product.getNumberOfSimCards());
+        productDTO.setConnectivity(product.getConnectivity());
+        productDTO.setBluetooth(product.getBluetooth());
+        productDTO.setNfc(product.getNfc());
+        productDTO.setWeight(product.getWeight());
         productDTO.setDescription(product.getDescription());
+
+        productDTO.setAction(product.getAction());
+        productDTO.setPriceBeforeAction(product.getPriceBeforeAction());
+        productDTO.setPriceAfterAction(product.getPriceAfterAction());
+        productDTO.setCountOfViews(product.getCountOfViews());
+
+
+
         productDTO.setImageName(product.getImageName());
+
+
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("productDTO", productDTO);
         return "/productsAdd";

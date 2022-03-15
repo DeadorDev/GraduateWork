@@ -33,13 +33,15 @@
 
                 <div class="form-group">
                     <label for="name" class="admin-home-products-label">Name</label>
-                    <input type="text" class="form-control admin-home-products-placeholder" required th:field="*{name}" name="name" id="name"
+                    <input type="text" class="form-control admin-home-products-placeholder" required th:field="*{name}"
+                           name="name" id="name"
                            placeholder="Enter name">
                 </div>
 
                 <div class="form-group">
                     <label for="category" class="admin-home-products-label">Select Category</label>
-                    <select class="form-control admin-home-products-placeholder" th:field="*{categoryId}" id="category" name="category">
+                    <select class="form-control admin-home-products-placeholder" th:field="*{categoryId}" id="category"
+                            name="category">
                         <option th:each="category :${categories}"
                                 th:value="${category.id}"
                                 th:text="${category.name}">
@@ -48,19 +50,169 @@
 
                 <div class="form-group">
                     <label for="price" class="admin-home-products-label">Price</label>
-                    <input type="number" class="form-control admin-home-products-placeholder" required th:field="*{price}" name="price" id="price"
+                    <input type="number" class="form-control admin-home-products-placeholder" required
+                           th:field="*{price}" name="price" id="price"
                            placeholder="Price">
                 </div>
 
-                <div class="form-group">
-                    <label for="weight" class="admin-home-products-label">Weight in grams</label>
-                    <input type="number" class="form-control admin-home-products-placeholder" required th:field="*{weight}" name="weight" id="weight"
-                           placeholder="Weight">
+                <div>
+                    <span class="admin-home-products-about-item-title">About item</span>
                 </div>
 
+                <div class="form-group products-add-input">
+                    <label for="brand" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required th:field="*{brand}"
+                           name="brand" id="brand"
+                           placeholder="Brand">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="model" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required th:field="*{model}"
+                           name="model" id="model"
+                           placeholder="Model">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="operatingSystem" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{operatingSystem}" name="operatingSystem" id="operatingSystem"
+                           placeholder="Operating System">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="screenSize" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{screenSize}" name="screenSize" id="screenSize"
+                           placeholder="Screen Size">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="displayResolution" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{displayResolution}" name="displayResolution" id="displayResolution"
+                           placeholder="Display Resolution">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="matrixType" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{matrixType}" name="matrixType" id="matrixType"
+                           placeholder="Matrix Type">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="processor" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{processor}" name="processor" id="processor"
+                           placeholder="Processor">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="numberOfCores" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{numberOfCores}" name="numberOfCores" id="numberOfCores"
+                           placeholder="Number Of Cores">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="battery" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{battery}" name="battery" id="battery"
+                           placeholder="Battery">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="ram" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{ram}" name="ram" id="ram"
+                           placeholder="RAM">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="storageCapacity" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{storageCapacity}" name="storageCapacity" id="storageCapacity"
+                           placeholder="Storage Capacity">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="numberOfMainCameras" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{numberOfMainCameras}" name="numberOfMainCameras" id="numberOfMainCameras"
+                           placeholder="Number Of Main Cameras">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="mainCameraResolution" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{mainCameraResolution}" name="mainCameraResolution" id="mainCameraResolution"
+                           placeholder="Main Camera Resolution">
+                </div>
+                <div class="form-group products-add-input">
+                    <label for="numberOfFrontCameras" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{numberOfFrontCameras}" name="numberOfFrontCameras" id="numberOfFrontCameras"
+                           placeholder="Number Of Front Cameras">
+                </div>
+                <div class="form-group">
+                    <label for="frontCameraResolution" class="admin-home-products-label"></label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{frontCameraResolution}" name="frontCameraResolution" id="frontCameraResolution"
+                           placeholder="Front Camera Resolution">
+                </div>
+                <div class="admin-home-products-about-item-title-other">
+                    <span>Other</span>
+                </div>
+                <div class="form-group">
+                    <label for="numberOfSimCards" class="admin-home-products-label">Number Of Sim Cards</label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{numberOfSimCards}" name="numberOfSimCards" id="numberOfSimCards"
+                           placeholder="Number Of SimCards">
+                </div>
+                <div class="form-group">
+                    <label for="connectivity" class="admin-home-products-label">Connectivity</label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{connectivity}" name="connectivity" id="connectivity"
+                           placeholder="Connectivity">
+                </div>
+                <div class="form-group">
+                    <label for="bluetooth" class="admin-home-products-label">Bluetooth</label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{bluetooth}" name="bluetooth" id="bluetooth"
+                           placeholder="Bluetooth">
+                </div>
+                <div class="form-group">
+                    <label for="nfc" class="admin-home-products-label">NFC</label>
+                    <input type="text" class="form-control admin-home-products-placeholder" required
+                           th:field="*{nfc}" name="nfc" id="nfc"
+                           placeholder="Yes/No">
+                </div>
+                <div class="form-group">
+                    <label for="weight" class="admin-home-products-label">Weight</label>
+                    <input type="number" class="form-control admin-home-products-placeholder" required
+                           th:field="*{weight}" name="weight" id="weight"
+                           placeholder="Weight">
+                </div>
+                <div class="form-group">
+                    <label for="countOfViews" class="admin-home-products-label">Count Of Views</label>
+                    <input type="number" class="form-control admin-home-products-placeholder"
+                           th:field="*{countOfViews}" name="countOfViews" id="countOfViews"
+                           placeholder="Count Of Views">
+                </div>
+                <div>
+                    <span class="admin-home-products-about-item-title">Action</span>
+                </div>
+                <div class="form-group">
+                    <label for="action" class="admin-home-products-label">Action</label>
+                    <input type="text" class="form-control admin-home-products-placeholder"
+                           th:field="*{action}" name="action" id="action"
+                           placeholder="Yes/No">
+                </div>
+                <div class="form-group">
+                    <label for="priceBeforeAction" class="admin-home-products-label">Price before action</label>
+                    <input type="number" class="form-control admin-home-products-placeholder"
+                           th:field="*{priceBeforeAction}" name="priceBeforeAction" id="priceBeforeAction"
+                           placeholder="Price Before Action">
+                </div>
+                <div class="form-group">
+                    <label for="priceAfterAction" class="admin-home-products-label">Price after action</label>
+                    <input type="number" class="form-control admin-home-products-placeholder"
+                           th:field="*{priceAfterAction}" name="priceAfterAction" id="priceAfterAction"
+                           placeholder="Price After Action">
+                </div>
                 <div class="form-group">
                     <label for="description" class="admin-home-products-label">Product Description</label>
-                    <textarea class="form-control admin-home-products-placeholder" rows="5" th:field="*{description}" name="description"
+                    <textarea class="form-control admin-home-products-placeholder" rows="5" th:field="*{description}"
+                              name="description"
                               id="description"></textarea>
                 </div>
 
@@ -71,7 +223,8 @@
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" name="productImage" accept="image/jpeg, image/png"
                            id="productImage"/>
-                    <label class="custom-file-label admin-home-products-placeholder" for="productImage">Choose file</label>
+                    <label class="custom-file-label admin-home-products-placeholder" for="productImage">Choose
+                        file</label>
                 </div>
                 <div class="form-group">
                     <img src="#" id="imgPreview" height="150px" width="150px"

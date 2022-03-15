@@ -113,30 +113,48 @@
                     </div>
                     <div class="view-product-about-this-item-container-inf-right">
                         <h2 class="view-product-about-this-item-container-inf-title">⠀</h2>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.brand}" class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.model}" class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.operatingSystem}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
                         <span class="view-product-about-this-item-container-inf-text-right">⠀</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.screenSize}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.displayResolution}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.matrixType}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
                         <span class="view-product-about-this-item-container-inf-text-right">⠀</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.processor}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.numberOfCores}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.battery + ' mAh'}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.ram + ' GB'}" class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+
+<!--                        <span th:if="${product.storageCapacity >= 1024}" th:text="${product.storageCapacity + ' TB'}"-->
+<!--                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>-->
+                        <span th:text="${product.storageCapacity + ' GB'}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
                         <span class="view-product-about-this-item-container-inf-text-right">⠀</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.numberOfMainCameras}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.mainCameraResolution + ' MP'}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.numberOfFrontCameras}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.frontCameraResolution + ' MP'}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
                         <span class="view-product-about-this-item-container-inf-text-right">⠀</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-                        <span class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.numberOfSimCards}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.connectivity}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.bluetooth}"
+                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.nfc}" class="view-product-about-this-item-container-inf-text-right">Unknown</span>
+                        <span th:text="${product.weight}" class="view-product-about-this-item-container-inf-text-right">Unknown</span>
                     </div>
                 </div>
 
