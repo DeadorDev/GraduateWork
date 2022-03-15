@@ -479,6 +479,10 @@ textarea:focus,
 }
 
 /* ---- REGISTER ---- */
+.alert {
+    padding: 0 !important;
+}
+
 .register-button {
     color: #fff;
     background-color: #FF602E !important;

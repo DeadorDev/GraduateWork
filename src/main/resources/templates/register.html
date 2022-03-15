@@ -53,7 +53,7 @@
                        name="password"
                        id="password">
             </div>
-            <div th:if="${param.error}" class="alert alert-error text-danger">
+            <div th:if="${authenticationError == 'authenticationError'}" class="alert alert-error text-danger">
                 User with this email address is already registered.
             </div>
 
