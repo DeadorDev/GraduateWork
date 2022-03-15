@@ -566,6 +566,16 @@ textarea:focus,
     font-weight: 500;
 }
 
+.personal-cabinet-empty-orders {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.empty-orders {
+    margin-bottom: 2rem
+}
+
 .personal-cabinet-user-detail {
     margin-left: 25%;
 }

@@ -92,6 +92,15 @@
         <div class="col-sm-7 personal-cabinet-orders">
             <h1 class="personal-cabinet-orders-title">My orders</h1>
 
+            <div class="personal-cabinet-empty-orders">
+                <img th:if="${listOrders.size() <= 0}" th:src="@{/images/empty_order.svg}"
+                     src="../static/images/buy_cart_discount_shop_shopping_icon.svg" width="auto"
+                     height="300vh"
+                     class="d-inline-block align-top empty-cart empty-orders" alt=""/>
+                <a th:if="${listOrders.size() <= 0}" th:href="@{/shop}" h
+                   class="btn btn-primary btn-block waves-effect waves-light button-cart-empty">Continue
+                    purchase</a>
+            </div>
             <div class="mb-4 personal-cabinet-order-card-container" th:each="order : ${listOrders}">
                 <div class="personal-cabinet-order-all-items">
                     <div th:each="orderItem : ${listOrderItems}" th:if="${orderItem.order.getId() == order.id}"
@@ -110,7 +119,8 @@
 
                             <div class="personal-cabinet-price-row">
                                 <div>
-                                    <a href="#" th:href="@{${'/shop/viewproduct/' + orderItem.product.id}}" class="personal-cabinet-links">
+                                    <a href="#" th:href="@{${'/shop/viewproduct/' + orderItem.product.id}}"
+                                       class="personal-cabinet-links">
                                         <h5 class="cart-title-product" th:text="${orderItem.product.name}">Name of
                                             phone</h5>
                                     </a>
