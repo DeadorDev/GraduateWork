@@ -1,6 +1,7 @@
 package com.plocky.deador.controller;
 
 import com.plocky.deador.global.GlobalData;
+import com.plocky.deador.model.PageUrlPrefix;
 import com.plocky.deador.model.Role;
 import com.plocky.deador.model.User;
 import com.plocky.deador.repository.RoleRepository;
@@ -8,6 +9,7 @@ import com.plocky.deador.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,12 +40,18 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public String registerPost(@ModelAttribute("user") User user, HttpServletRequest request) throws ServletException {
+    public String registerPost(@ModelAttribute("user") User user, HttpServletRequest request, Model model) throws ServletException {
         // Checking if a user exists in the database
         String emailFromForm = user.getEmail();
         User userFromDB = userRepository.findUserByEmailContains(emailFromForm);
-        if (!(userFromDB == null) && emailFromForm.equals(userFromDB.getEmail())) {
-            return "/register";
+        if (!(userFromDB == null)) {
+            if (emailFromForm.equals(userFromDB.getEmail())) {
+                //AuthenticationError
+                PageUrlPrefix authenticationError = new PageUrlPrefix();
+                authenticationError.setAuthenticationError("authenticationError");
+                model.addAttribute("authenticationError", authenticationError.getAuthenticationError());
+                return "/register";
+            }
         }
         //
         String password = user.getPassword();
