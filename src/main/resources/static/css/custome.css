@@ -262,7 +262,7 @@ textarea:focus,
 
 /* ----- CATEGORIES -------- */
 .categories-custome {
-    height: 600px;
+    height: fit-content;
     top: 110px;
     position: sticky !important;
 }
@@ -508,6 +508,8 @@ textarea:focus,
 
 /* ---- PERSONAL CABINET ---- */
 .personal-cabinet-user {
+    position: sticky;
+    top: 10%;
     display: flex;
     min-width: 40%;
     flex-direction: column;
@@ -911,20 +913,20 @@ textarea:focus,
     width: 60%;
 }
 
-.admin-home-categories-info{
+.admin-home-categories-info {
     font-family: 'Poppins', sans-serif;
     font-size: 1em !important;
     font-weight: 500 !important;
     color: black;
 }
 
-.admin-categories-add-container{
+.admin-categories-add-container {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
 }
 
-.admin-categories-add-button{
+.admin-categories-add-button {
     color: #fff;
     background-color: #FF602E !important;
     border-color: #FF602E !important;
@@ -934,7 +936,7 @@ textarea:focus,
     font-size: 1.2em !important;
 }
 
-.admin-categories-add-title-container{
+.admin-categories-add-title-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -947,7 +949,7 @@ textarea:focus,
     color: black;
 }
 
-.admin-categories-add-input{
+.admin-categories-add-input {
     font-family: 'Poppins', sans-serif;
     font-size: 1em !important;
     font-weight: 400 !important;
@@ -977,12 +979,13 @@ textarea:focus,
     color: white;
     width: 80%;
 }
+
 /*--- Products add ---*/
-.admin-home-products-add-container{
+.admin-home-products-add-container {
     margin-top: 3rem;
 }
 
-.admin-products-add-title{
+.admin-products-add-title {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5em !important;
     font-weight: 500 !important;
@@ -996,28 +999,28 @@ textarea:focus,
     padding: 1.5rem;
 }
 
-.admin-home-products-label{
+.admin-home-products-label {
     font-family: 'Poppins', sans-serif;
     font-size: 1em !important;
     font-weight: 400 !important;
     color: black;
 }
 
-.admin-home-products-placeholder{
+.admin-home-products-placeholder {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9em !important;
     font-weight: 400 !important;
     color: #757575;
 }
 
-.admin-home-products-about-item-title{
+.admin-home-products-about-item-title {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2em !important;
     font-weight: 500 !important;
     color: black;
 }
 
-.admin-home-products-about-item-title-other{
+.admin-home-products-about-item-title-other {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2em !important;
     font-weight: 500 !important;
@@ -1025,7 +1028,25 @@ textarea:focus,
     margin-bottom: 1rem !important;
 }
 
-.products-add-input{
+.products-add-input {
     margin-bottom: 0 !important;
+}
+
+/*---- ORDERS ----*/
+.admin-orders-container {
+    margin-top: 1.5rem;
+}
+
+.admin-orders-button-more {
+    color: #fff;
+    background-color: #FF602E !important;
+    border-color: #FF602E !important;
+    border-radius: 10px;
+    box-shadow: #00000020 0px 3px 4px 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em !important;
+    font-weight: 500 !important;
+    display: block;
+    width: 100%;
 }
 

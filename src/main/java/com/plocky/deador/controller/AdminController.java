@@ -2,8 +2,12 @@ package com.plocky.deador.controller;
 
 import com.plocky.deador.dto.ProductDTO;
 import com.plocky.deador.model.Category;
+import com.plocky.deador.model.Order;
 import com.plocky.deador.model.Product;
+import com.plocky.deador.repository.OrderRepository;
 import com.plocky.deador.service.CategoryService;
+import com.plocky.deador.service.OrderItemService;
+import com.plocky.deador.service.OrderService;
 import com.plocky.deador.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,15 +24,23 @@ import java.util.Optional;
 @Controller
 public class AdminController {
     public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
-    //    @Autowired
     CategoryService categoryService;
-    //    @Autowired
     ProductService productService;
+    OrderService orderService;
+    OrderRepository orderRepository;
+    OrderItemService orderItemService;
 
     @Autowired
-    public AdminController(CategoryService categoryService, ProductService productService) {
+    public AdminController(CategoryService categoryService,
+                           ProductService productService,
+                           OrderRepository orderRepository,
+                           OrderService orderService,
+                           OrderItemService orderItemService) {
         this.categoryService = categoryService;
         this.productService = productService;
+        this.orderRepository = orderRepository;
+        this.orderService = orderService;
+        this.orderItemService = orderItemService;
     }
 
     @GetMapping("/admin")
@@ -65,7 +77,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/categories/update/{id}")
-    public String updateCat(@PathVariable int id, Model model) {
+    public String updateCategory(@PathVariable int id, Model model) {
         Optional<Category> category = categoryService.getCategoryById(id);
         if (category.isPresent()) {
             model.addAttribute("category", category.get());
@@ -183,13 +195,36 @@ public class AdminController {
         productDTO.setCountOfViews(product.getCountOfViews());
 
 
-
         productDTO.setImageName(product.getImageName());
 
 
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("productDTO", productDTO);
         return "/productsAdd";
+    }
+
+    //Order Section
+    @GetMapping("/admin/orders")
+    public String getOrders(Model model) {
+        model.addAttribute("orders", orderRepository.findAll());
+        return "/orders";
+    }
+
+    @GetMapping("/admin/order/orderMore/{id}")
+    public String getOrderMore(@PathVariable Integer id,
+                               Model model) {
+        model.addAttribute("order", orderService.getOrderById(id).get());
+        model.addAttribute("listOrderItems", orderItemService.getAllOrderItemsById(id));
+        return "/orderMore";
+    }
+
+    @PostMapping("/admin/orders/orderMore/update/{id}")
+    public String postUpdateOrder(@PathVariable Integer id,
+                                  @ModelAttribute("orderToUpdate") Order orderToUpdatePost) {
+        Order order = orderService.getOrderById(id).get();
+        order.setDeliveryStatus(orderToUpdatePost.getDeliveryStatus());
+        orderRepository.save(order);
+        return "redirect:/admin/orders";
     }
 
 

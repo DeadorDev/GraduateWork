@@ -20,4 +20,8 @@ public class OrderItemService {
         return orderItemRepository.findAll();
     }
 
+    public List<OrderItem> getAllOrderItemsById(Integer id){
+        return orderItemRepository.findAllByOrderId(id);
+    }
+
 }
