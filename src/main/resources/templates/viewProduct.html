@@ -67,7 +67,7 @@
             <img class="" height="500vh" width="500vw" src="" th:src="@{${'/productImages/' + product.imageName}}"
                  alt="">
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-7 view-product-container">
             <div class="view-product-title-container">
                 <h2 th:text="${product.name}" class="view-product-title"></h2>
                 <h2 class="view-product-title-price">$ <span th:text="${product.price}"></span></h2>

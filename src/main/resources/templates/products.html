@@ -31,8 +31,8 @@
             <th scope="col" class="admin-home-categories-table-text">Product Name</th>
             <th scope="col" class="admin-home-categories-table-text">Category</th>
             <th scope="col" class="admin-home-categories-table-text">Preview</th>
-            <th scope="col" class="admin-home-categories-table-text">Delete</th>
-            <th scope="col" class="admin-home-categories-table-text">Update</th>
+            <th scope="col" class="admin-home-categories-table-text categories-title">Delete</th>
+            <th scope="col" class="admin-home-categories-table-text categories-title">Update</th>
         </tr>
         </thead>
         <tbody>
@@ -43,8 +43,8 @@
             <td th:text="${product.category.name}" class="admin-home-categories-info">Bob</td>
             <td><img src="" height="150vh" width="150vw"  th:src="@{${'/productImages/' + product.imageName}}"></td>
 
-            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn admin-home-products-button-delete">Delete</a></td>
-            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn admin-home-products-button-update">Update</a></td>
+            <td class="categories-button"><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn admin-home-products-button-delete">Delete</a></td>
+            <td class="categories-button"><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn admin-home-products-button-update">Update</a></td>
 
         </tr>
         </tbody>
