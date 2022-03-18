@@ -55,13 +55,10 @@
                                         <label for="firstName">First name</label>
                                         <input type="text" required th:field="*{firstName}" name="firstName"
                                                id="firstName" class="form-control mb-0 mb-lg-2"
-                                               placeholder="Enter first name">
+                                               placeholder="Enter first name" maxlength="60">
                                     </div>
 
                                 </div>
-                                <!-- Grid column -->
-
-                                <!-- Grid column -->
                                 <div class="col-lg-6">
 
                                     <!-- Last name -->
@@ -69,7 +66,7 @@
                                         <label for="lastName">Last name</label>
                                         <input type="text" th:field="*{lastName}" name="lastName" id="lastName" required
                                                class="form-control"
-                                               placeholder="Enter last name">
+                                               placeholder="Enter last name" maxlength="60">
                                     </div>
 
                                 </div>
@@ -101,7 +98,7 @@
                                 <label for="townCity">Town / City</label>
                                 <input type="text" th:field="*{townCity}" name="townCity" required id="townCity"
                                        class="form-control"
-                                       placeholder="Enter city / town name">
+                                       placeholder="Enter city / town name" maxlength="100">
 
                             </div>
 
@@ -110,7 +107,7 @@
                                 <label for="address">Address</label>
                                 <input type="text" th:field="*{address}" name="address" required id="address"
                                        placeholder="House number and street name"
-                                       class="form-control">
+                                       class="form-control" maxlength="200">
                             </div>
 
                             <!-- Postcode / ZIP -->
@@ -124,7 +121,7 @@
                             <!-- Additional information -->
                             <div class="md-form md-outline mt-2 checkout-font additional-information">
                                 <label for="additionalInformation">Additional information</label>
-                                <textarea id="additionalInformation" th:field="*{additionalInformation}"
+                                <textarea maxlength="240" id="additionalInformation" th:field="*{additionalInformation}"
                                           name="additionalInformation" class="md-textarea form-control "
                                           rows="4"></textarea>
                             </div>

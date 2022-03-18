@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-custome">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#" th:href="@{/adminHome}">
+        <a class="navbar-brand" href="#" th:href="@{/admin}">
             <img th:src="@{/images/logo.svg}" src="../static/images/logo.svg" width="auto" height="80"
                  class="d-inline-block align-top" alt=""/>
             <span class="navbar-name">PLOCKY</span>
@@ -33,39 +33,39 @@
             <div class="personal-cabinet-user-title"><p>Order data</p></div>
             <div>
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small">Order ID</div>
+                    <div class="personal-cabinet-user-small personal-cabinet-user-left">Order ID</div>
                     <span th:text="${order.id}"
-                          class="personal-cabinet-user-detail">unknown</span>
+                          class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
 
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small">Email</div>
-                    <span th:text="${order.email}" class="personal-cabinet-user-detail">unknown</span>
+                    <div class="personal-cabinet-user-small personal-cabinet-user-left">Email</div>
+                    <span th:text="${order.email}" class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
 
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small-email">First name</div>
-                    <span th:text="${order.firstName}" class="personal-cabinet-user-detail">unknown</span>
+                    <div class="personal-cabinet-user-small-email personal-cabinet-user-left">First name</div>
+                    <span th:text="${order.firstName}" class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small-email">Last name</div>
-                    <span th:text="${order.lastName}" class="personal-cabinet-user-detail">unknown</span>
+                    <div class="personal-cabinet-user-small-email personal-cabinet-user-left">Last name</div>
+                    <span th:text="${order.lastName}" class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small-email">Phone number</div>
-                    <span th:text="${order.phoneNumber}" class="personal-cabinet-user-detail">unknown</span>
+                    <div class="personal-cabinet-user-small-email personal-cabinet-user-left">Phone number</div>
+                    <span th:text="${order.phoneNumber}" class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small-email">Postcode</div>
-                    <span th:text="${order.postcode}" class="personal-cabinet-user-detail">unknown</span>
+                    <div class="personal-cabinet-user-small-email personal-cabinet-user-left">Postcode</div>
+                    <span th:text="${order.postcode}" class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small-email">City/town</div>
-                    <span th:text="${order.townCity}" class="personal-cabinet-user-detail">unknown</span>
+                    <div class="personal-cabinet-user-small-email personal-cabinet-user-left">City/town</div>
+                    <span th:text="${order.townCity}" class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
                 <div class="personal-cabinet-user-info">
-                    <div class="personal-cabinet-user-small-email">Address</div>
-                    <span th:text="${order.address}" class="personal-cabinet-user-detail">unknown</span>
+                    <div class="personal-cabinet-user-small-email personal-cabinet-user-left">Address</div>
+                    <span th:text="${order.address}" class="personal-cabinet-user-detail personal-cabinet-user-right">unknown</span>
                 </div>
             </div>
         </div>
@@ -120,18 +120,25 @@
                         <span th:text="${order.totalAmount}" class="personal-cabinet-order-delivery-status-detail">Total amount: $</span>
                     </div>
                 </div>
+<!--                <form th:action="@{/admin/orders/orderMore/update/{id} (id=${order.id})}" method="post"-->
+<!--                      th:object="${orderToUpdate}">-->
+<!--                    <input type="hidden" name="id" th:field="*{id}">-->
+<!--                    <input type="hidden" name="deliveryStatus" th:field="*{deliveryStatus}" value="transfer">-->
+<!--                    <button type="submit" class="btn btn-block admin-categories-add-button">Submit</button>-->
+<!--                </form>-->
 
-                <form th:action="@{/admin/orders/orderMore/update/{id} (id=${order.id})}" method="post"
+                <form th:action="@{/admin/orders/orderMore/update/{id} (id=${order.id})}" method="post" class="admin-orders-delivery-status-form"
                       th:object="${order}">
                     <input type="hidden" name="id" th:field="*{id}">
                     <div class="form-group admin-categories-add-title-container">
-                        <span class="admin-categories-add-title">Delivery status</span>
+                        <span class="admin-orders-delivery-status-title">Delivery status</span>
                         <label for="deliveryStatus"></label>
-                        <input type="text" class="form-control admin-categories-add-input" required th:field="*{deliveryStatus}"
+                        <input type="text" class="form-control admin-categories-add-input" required maxlength="100"
+                               th:field="*{deliveryStatus}"
                                name="deliveryStatus" id="deliveryStatus"
                                placeholder="Enter delivery status">
+                        <button type="submit" class="btn admin-orders-delivery-status-button">Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-block admin-categories-add-button">Submit</button>
                 </form>
 
 

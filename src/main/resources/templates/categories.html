@@ -32,8 +32,8 @@
         <tr>
             <th scope="col" class="admin-home-categories-table-text">№</th>
             <th scope="col" class="admin-home-categories-table-text">Category Name</th>
-            <th scope="col" class="admin-home-categories-table-text">Delete</th>
-            <th scope="col" class="admin-home-categories-table-text">Update</th>
+            <th scope="col" class="admin-home-categories-table-text categories-title">Delete</th>
+            <th scope="col" class="admin-home-categories-table-text categories-title">Update</th>
         </tr>
         </thead>
         <tbody>
@@ -42,9 +42,9 @@
             <th scope="row" th:text="${iStat.index + 1}" class="admin-home-categories-info">1</th>
             <td th:text="${category.name}" class="admin-home-categories-info">Larry</td>
 
-            <td><a href="" th:href="@{/admin/categories/delete/{id}(id=${category.id})}"
+            <td class="categories-button"><a href="" th:href="@{/admin/categories/delete/{id}(id=${category.id})}"
                    class="btn admin-home-categories-button-delete">Delete</a></td>
-            <td><a href="" th:href="@{/admin/categories/update/{id}(id=${category.id})}"
+            <td class="categories-button"><a href="" th:href="@{/admin/categories/update/{id}(id=${category.id})}"
                    class="btn admin-home-categories-button-update">Update</a></td>
 
         </tr>

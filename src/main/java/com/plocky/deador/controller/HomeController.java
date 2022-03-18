@@ -124,6 +124,7 @@ public class HomeController {
 
         model.addAttribute("pageUrlPrefix", pageUrlPrefix);
 
+        model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("keyword", keyword);
         model.addAttribute("cartCount", GlobalData.cart.size());
         model.addAttribute("listProducts", listProducts);
