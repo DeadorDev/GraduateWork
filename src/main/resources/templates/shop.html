@@ -8,9 +8,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <link th:href="@{/css/custome.css}" type="text/css" rel="stylesheet">
-
+    <script src="/js/script.js"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,7 +21,7 @@
     <script src="https://kit.fontawesome.com/88ccb28af8.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body style="background-color: #F4F4F9">
+<body style="background-color: #F4F4F9" class="">
 
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-custome">
@@ -51,24 +51,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav cart-count-shop">
-
-                <!--                + '&sortField=' + ${sortField} + '&sortDir=' + ${reverseSortDir}       -->
-
-                <!--       SORTING         -->
-                <!--   <a th:href="@{'/page/' + ${currentPage} + '?sortField=price&sortDir=' + ${reverseSortDir}}"  -->
-                <!--                <select id="orderSelect" class="sorting" th:method="get">-->
-
-                <!--                    &lt;!&ndash;                    <option selected name="sortField" value="price" th:onclick="onclick="location.href = 'www.yoursite.com';"">&ndash;&gt;-->
-                <!--                    <input type="hidden" name="sortField" th:value="price">-->
-                <!--                    <input type="hidden" name="sortDir" th:value="asc">-->
-                <!--                    Order by Price Ascending-->
-                <!--                    &lt;!&ndash;                    </option>&ndash;&gt;-->
-
-                <!--                    <option name="sortField" value="price">-->
-                <!--                        Order by Price Descending-->
-                <!--                    </option>-->
-                <!--                </select>-->
-
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/personalCabinet}" href="#"><i
                             class="bi bi-person-fill navbar-icons"></i></a>
@@ -87,7 +69,21 @@
     </div>
 </nav>
 
-<div class="container" style="margin-top: 30px">
+<div class="container-xl" style="margin-top: 30px">
+    <!-- SORTING -->
+    <div class="selectlink">
+        <div class="selectlink-control">Sort by...</div>
+        <ul class="menu_popup">
+            <li><a href="#" th:href="@{'/shop/page/1?sortField=price&sortDir=asc'}">Price: Low to High</a>
+            </li>
+            <li><a href="#" th:href="@{'/shop/page/1?sortField=price&sortDir=desc'}">Price: High to Low</a>
+            </li>
+            <li><a href="#" th:href="@{'/shop/page/1?sortField=countOfViews&sortDir=desc'}">Avg. Customer Views</a>
+            </li>
+            <li><a href="#" th:href="@{'/shop/page/1?sortField=id&sortDir=desc'}">Newest Arrivals</a>
+            </li>
+        </ul>
+    </div>
     <div class="row">
         <div class="col-sm-3 categories-custome">
             <div class="categories-col">
@@ -102,24 +98,13 @@
                                 class="list-group-item" th:text="${category.name}"></li>
                     </a>
                 </ul>
-
-                <!-- JS -->
-                <select onchange="window.location.href = this.options[this.selectedIndex].value">
-                    <option value="/shop/page/1?sortField=price&sortDir=asc">Sorting by price ascending</option>
-                    <option value="/shop/page/1?sortField=price&sortDir=desc">Sorting by price descending</option>
-                </select>
-
-                <!--                <a href="#" th:href="@{'/shop/page/1?sortField=price&sortDir=asc'}">Sorting by price ascending</a>-->
-                <!--                <a href="#" th:href="@{'/shop/page/1?sortField=price&sortDir=desc'}">Sorting by price descending</a>-->
-                <!--                <a href="#" th:href="@{'/shop/page/1?sortField=id&sortDir=desc'}">New phones</a>-->
-
             </div>
         </div>
 
 
         <div class="col-sm-9 card-father">
             <div class="card-content">
-                <div class="card card-shop" th:each="product : ${listProducts}">
+                <div class="card-shop" th:each="product : ${listProducts}">
                     <a href="#" th:href="@{'/shop/viewproduct/{id}'(id=${product.id})}" class="card-link">
                         <div class="row no-gutters">
                             <div class="col-sm-5 d-flex justify-content-center card-img">
@@ -185,15 +170,16 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"-->
+<!--        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"-->
+<!--        crossorigin="anonymous"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
 
 </body>
 </html>
