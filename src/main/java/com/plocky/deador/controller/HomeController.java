@@ -4,9 +4,8 @@ package com.plocky.deador.controller;
 import com.plocky.deador.global.GlobalData;
 import com.plocky.deador.model.PageUrlPrefix;
 import com.plocky.deador.model.Product;
-import com.plocky.deador.model.User;
+import com.plocky.deador.repository.ProductRepository;
 import com.plocky.deador.service.CategoryService;
-import com.plocky.deador.service.CustomUserDetailService;
 import com.plocky.deador.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,6 +21,8 @@ public class HomeController {
     CategoryService categoryService;
     @Autowired
     ProductService productService;
+    @Autowired
+    ProductRepository productRepository;
 
 //    @GetMapping({"/", "/home"})
 //    public String home(Model model) {
@@ -95,7 +96,14 @@ public class HomeController {
 
     @GetMapping("/shop/viewproduct/{id}")
     public String viewProduct(@PathVariable int id, Model model) {
-        model.addAttribute("product", productService.getProductById(id).get());
+        Product product = productService.getProductById(id).get();
+        if (product.getCountOfViews() == null) {
+            product.setCountOfViews(0);
+        }
+        Integer countOfView = product.getCountOfViews() + 1;
+        product.setCountOfViews(countOfView);
+        productRepository.save(product);
+        model.addAttribute("product", product);
         model.addAttribute("cartCount", GlobalData.cart.size());
         return "/viewProduct";
     }
