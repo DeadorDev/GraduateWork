@@ -26,7 +26,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-custome">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#" th:href="@{/shop}">
+        <a class="navbar-brand navbar-logo" href="#" th:href="@{/shop}">
             <img th:src="@{/images/logo.svg}" src="../static/images/logo.svg" width="auto" height="80"
                  class="d-inline-block align-top" alt=""/>
             <span class="navbar-name">PLOCKY</span>
@@ -37,7 +37,6 @@
             <input class="search-input" type="text" name="keyword" placeholder="I'm looking for..." maxlength="80"/>
             <input type="hidden" name="sortField" th:value="${sortField}">
             <input type="hidden" name="sortDir" th:value="${sortDir}">
-            <!--            <input class="button-search" type="submit">-->
             <button class="button-search" type="submit">
                 <i class="bi bi-search button-search-icon"></i>
             </button>
@@ -60,7 +59,7 @@
                     <a class="nav-link nav-link-cart" th:href="@{/cart}" href="#"> <i
                             class="bi bi-basket2-fill navbar-icons"></i></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item active nav-cart-number">
                     <span class="nav-link navbar-custome-count" th:text="${cartCount}">0</span>
                 </li>
             </ul>
@@ -101,25 +100,27 @@
             </div>
         </div>
 
+        <div class="col-sm-9 card-father-n">
+            <div class="card-father">
 
-        <div class="col-sm-9 card-father">
-            <div class="card-content">
-                <div class="card-shop" th:each="product : ${listProducts}">
-                    <a href="#" th:href="@{'/shop/viewproduct/{id}'(id=${product.id})}" class="card-link">
-                        <div class="row no-gutters">
-                            <div class="col-sm-5 d-flex justify-content-center card-img">
-                                <img style="margin-bottom: 5px" width="150vw" height="150vh"
-                                     th:src="@{${'/productImages/' + product.imageName}}"
-                                     th:alt="${product.name}">
-                            </div>
-                            <div class="col-sm-7 d-flex justify-content-center card-content-text">
-                                <div class="card-body">
-                                    <p class="card-title" th:text="${product.name}"></p>
-                                    <p class="card-title" th:text="${'$' + product.price}"></p>
+                <div class="card-content">
+                    <div class="card-shop" th:each="product : ${listProducts}">
+                        <a href="#" th:href="@{'/shop/viewproduct/{id}'(id=${product.id})}" class="card-link">
+                            <div class="row no-gutters">
+                                <div class="col-sm-5 d-flex justify-content-center card-img">
+                                    <img style="margin-bottom: 5px" width="150vw" height="150vh"
+                                         th:src="@{${'/productImages/' + product.imageName}}"
+                                         th:alt="${product.name}">
+                                </div>
+                                <div class="col-sm-7 d-flex justify-content-center card-content-text">
+                                    <div class="card-body">
+                                        <p class="card-title" th:text="${product.name}"></p>
+                                        <p class="card-title" th:text="${'$' + product.price}"></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- PAGINATION -->
