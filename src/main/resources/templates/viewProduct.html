@@ -64,14 +64,14 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-5 d-flex justify-content-center view-product-image">
-            <img class="" height="500vh" width="500vw" src="" th:src="@{${'/productImages/' + product.imageName}}"
+            <img class="view-product-one" src="" th:src="@{${'/productImages/' + product.imageName}}"
                  alt="">
         </div>
         <div class="col-sm-7 view-product-container">
             <div class="view-product-title-container">
                 <h2 th:text="${product.name}" class="view-product-title"></h2>
                 <h2 class="view-product-title-price">$ <span th:text="${product.price}"></span></h2>
-                <div class="view-product-count-of-view"><i class="bi bi-eye"></i><span th:text="${product.countOfViews}">0</span></div>
+                <div class="view-product-count-of-view"><i class="bi bi-eye"></i><span th:text="${product.countOfViews}" class="view-product-count-of-view-number">0</span></div>
             </div>
             <div class="view-product-buttons">
                 <a href="" th:href="@{/buyNow/{id}(id = ${product.id})}" class="view-product-button-buy-now">Buy
