@@ -23,6 +23,4 @@ public class OrderDTO {
     private String deliveryStatus;
     private String email;
 
-
-
 }

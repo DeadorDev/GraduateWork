@@ -120,12 +120,15 @@
                         <span th:text="${order.totalAmount}" class="personal-cabinet-order-delivery-status-detail">Total amount: $</span>
                     </div>
                 </div>
+
+
 <!--                <form th:action="@{/admin/orders/orderMore/update/{id} (id=${order.id})}" method="post"-->
 <!--                      th:object="${orderToUpdate}">-->
 <!--                    <input type="hidden" name="id" th:field="*{id}">-->
 <!--                    <input type="hidden" name="deliveryStatus" th:field="*{deliveryStatus}" value="transfer">-->
 <!--                    <button type="submit" class="btn btn-block admin-categories-add-button">Submit</button>-->
 <!--                </form>-->
+
 
                 <form th:action="@{/admin/orders/orderMore/update/{id} (id=${order.id})}" method="post" class="admin-orders-delivery-status-form"
                       th:object="${order}">

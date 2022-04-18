@@ -372,6 +372,84 @@ textarea:focus,
     position: sticky !important;
 }
 
+.container-content{
+    margin-bottom: 2rem !important;
+}
+
+/* ---- FOOTER ----*/
+.footer {
+    background-color: #D8E1E3;
+    height: fit-content;
+}
+
+.footer-social-networks{
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem;
+}
+
+.footer-social-networks-title{
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #525252;
+}
+
+.footer-social-networks-icons{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-icon{
+    font-size: 1.7rem;
+    margin: 0 0.5rem;
+}
+
+.footer-phones{
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-phones-title{
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #525252;
+}
+
+.footer-phones-info{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: black;
+}
+
+.footer-email{
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-email-title{
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #525252;
+}
+
+.footer-email-info{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: black;
+}
+
+/* ---- FOOTER ---- */
+
 .search-input {
     overflow: visible;
     border: none !important;
