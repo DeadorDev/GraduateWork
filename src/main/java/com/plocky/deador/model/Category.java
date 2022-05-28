@@ -2,7 +2,6 @@ package com.plocky.deador.model;
 
 
 import lombok.Data;
-import lombok.Getter;
 
 import javax.persistence.*;
 
@@ -14,7 +13,6 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "category_id")
     private int id;
-
     @Column(name = "name")
     private String name;
 }

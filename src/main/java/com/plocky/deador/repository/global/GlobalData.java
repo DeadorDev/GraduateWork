@@ -1,4 +1,4 @@
-package com.plocky.deador.global;
+package com.plocky.deador.repository.global;
 
 import com.plocky.deador.model.Product;
 
@@ -11,7 +11,6 @@ public class GlobalData {
     static {
         cart = new ArrayList<Product>();
     }
-
     public static String userName;
     public static String userEmail;
 }

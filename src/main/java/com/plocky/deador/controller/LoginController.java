@@ -1,6 +1,6 @@
 package com.plocky.deador.controller;
 
-import com.plocky.deador.global.GlobalData;
+import com.plocky.deador.repository.global.GlobalData;
 import com.plocky.deador.model.PageUrlPrefix;
 import com.plocky.deador.model.Role;
 import com.plocky.deador.model.User;

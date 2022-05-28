@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/88ccb28af8.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body style="background-color: #F4F4F9">
@@ -30,7 +31,6 @@
             <input class="search-input" type="text" name="keyword" placeholder="I'm looking for..."/>
             <input type="hidden" name="sortField" th:value="id">
             <input type="hidden" name="sortDir" th:value="desc">
-            <!--            <input class="button-search" type="submit">-->
             <button class="button-search" type="submit">
                 <i class="bi bi-search button-search-icon"></i>
             </button>
@@ -54,7 +54,7 @@
                             class="bi bi-basket2-fill navbar-icons"></i></a>
                 </li>
                 <li class="nav-item active">
-                    <span class="nav-link navbar-custome-count" th:text="${cartCount}">0</span>
+                    <span class="nav-link navbar-custome-count nav-cart-number" th:text="${cartCount}">0</span>
                 </li>
             </ul>
 
@@ -133,9 +133,6 @@
                         <span th:text="${product.battery + ' mAh'}"
                               class="view-product-about-this-item-container-inf-text-right">Unknown</span>
                         <span th:text="${product.ram + ' GB'}" class="view-product-about-this-item-container-inf-text-right">Unknown</span>
-
-<!--                        <span th:if="${product.storageCapacity >= 1024}" th:text="${product.storageCapacity + ' TB'}"-->
-<!--                              class="view-product-about-this-item-container-inf-text-right">Unknown</span>-->
                         <span th:text="${product.storageCapacity + ' GB'}"
                               class="view-product-about-this-item-container-inf-text-right">Unknown</span>
                         <span class="view-product-about-this-item-container-inf-text-right">⠀</span>
@@ -164,6 +161,25 @@
 
     </div>
 </div>
+<nav class="navbar navbar-expand-lg navbar-light footer">
+    <div class="footer-social-networks">
+        <div class="footer-social-networks-title">Social networks</div>
+        <div class="footer-social-networks-icons">
+            <a><i class="fa-brands fa-viber footer-icon"></i></a>
+            <a><i class="fa-brands fa-telegram footer-icon"></i></a>
+            <a><i class="fa-brands fa-instagram-square footer-icon"></i></a>
+        </div>
+    </div>
+    <div class="footer-phones">
+        <span class="footer-phones-title">Phones</span>
+        <span class="footer-phones-info">+380980147658</span>
+        <span class="footer-phones-info">+380930204778</span>
+    </div>
+    <div class="footer-email">
+        <span class="footer-email-title">Email</span>
+        <span class="footer-email-info">inkohnito4@gmail.com</span>
+    </div>
+</nav>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
