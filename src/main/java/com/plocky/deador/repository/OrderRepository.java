@@ -9,9 +9,7 @@ import java.util.Optional;
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     List<Order> findAllByEmail(String userEmail);
-
     List<Order> findAll();
-
     Optional<Order> findById(Integer id);
 
 }

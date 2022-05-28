@@ -1,7 +1,7 @@
 package com.plocky.deador.controller;
 
 import com.plocky.deador.dto.OrderDTO;
-import com.plocky.deador.global.GlobalData;
+import com.plocky.deador.repository.global.GlobalData;
 import com.plocky.deador.model.Order;
 import com.plocky.deador.model.OrderItem;
 import com.plocky.deador.model.Product;
@@ -80,7 +80,6 @@ public class CartController {
         order.setAdditionalInformation(orderDTO.getAdditionalInformation());
         order.setDeliveryStatus("Preparation");
         order.setTotalAmount((int) GlobalData.cart.stream().mapToDouble(Product::getPrice).sum());
-        // --- USER (NOT WORKING) ---
         order.setUser(authenticationUser);
         // --- ORDER SAVE ---
         orderRepository.save(order);
@@ -92,10 +91,7 @@ public class CartController {
             orderItemRepository.save(orderItem);
         }
         // --- USERS ORDERS ---
-
-
         GlobalData.cart.clear();
-
         return "redirect:/shop";
     }
 

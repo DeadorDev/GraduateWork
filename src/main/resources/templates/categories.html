@@ -37,7 +37,6 @@
         </tr>
         </thead>
         <tbody>
-
         <tr th:each="category, iStat : ${categories}">
             <th scope="row" th:text="${iStat.index + 1}" class="admin-home-categories-info">1</th>
             <td th:text="${category.name}" class="admin-home-categories-info">Larry</td>
@@ -46,7 +45,6 @@
                    class="btn admin-home-categories-button-delete">Delete</a></td>
             <td class="categories-button"><a href="" th:href="@{/admin/categories/update/{id}(id=${category.id})}"
                    class="btn admin-home-categories-button-update">Update</a></td>
-
         </tr>
         </tbody>
     </table>

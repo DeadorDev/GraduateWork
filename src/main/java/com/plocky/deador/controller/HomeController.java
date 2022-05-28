@@ -1,7 +1,7 @@
 package com.plocky.deador.controller;
 
 
-import com.plocky.deador.global.GlobalData;
+import com.plocky.deador.repository.global.GlobalData;
 import com.plocky.deador.model.PageUrlPrefix;
 import com.plocky.deador.model.Product;
 import com.plocky.deador.repository.ProductRepository;
@@ -24,11 +24,6 @@ public class HomeController {
     @Autowired
     ProductRepository productRepository;
 
-//    @GetMapping({"/", "/home"})
-//    public String home(Model model) {
-//        model.addAttribute("cartCount", GlobalData.cart.size());
-//        return findPaginated(1, "id", "asc", model);
-//    }
 
     @GetMapping("/shop")
     public String shop(Model model) {
@@ -46,23 +41,17 @@ public class HomeController {
         pageUrlPrefix.setPageUrlPrefixString("/shop");
         Page<Product> page = productService.findPaginated(pageNo, pageSize, sortField, sortDir);
         List<Product> listProducts = page.getContent();
-
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("cartCount", GlobalData.cart.size());
-
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", page.getTotalPages());
         model.addAttribute("totalItems", page.getTotalElements());
-
         model.addAttribute("sortField", sortField);
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
-
         model.addAttribute("listProducts", listProducts);
         model.addAttribute("pageUrlPrefix", pageUrlPrefix);
         return "/shop";
-
-
     }
 
     @GetMapping("/shop/category/{id}/page/{pageNo}")

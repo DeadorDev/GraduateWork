@@ -30,7 +30,6 @@
             <input class="search-input" type="text" name="keyword" placeholder="I'm looking for..."/>
             <input type="hidden" name="sortField" th:value="id">
             <input type="hidden" name="sortDir" th:value="desc">
-            <!--            <input class="button-search" type="submit">-->
             <button class="button-search" type="submit">
                 <i class="bi bi-search button-search-icon"></i>
             </button>
@@ -53,7 +52,7 @@
                     <a class="nav-link nav-link-cart" th:href="@{/cart}" href="#"><i
                             class="bi bi-basket2-fill navbar-icons"></i></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item active nav-cart-number">
                     <span class="nav-link navbar-custome-count" th:text="${cartCount}">0</span>
                 </li>
             </ul>
@@ -93,7 +92,7 @@
                                     <div class="mb-3 mb-md-0">
                                         <img width="150vw" height="150vh"
                                              th:src="@{${'/productImages/' + item.imageName}}"
-                                             src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
+                                             src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/content/en/_mdb5/_assets/img/icons/mysql.webp"
                                              alt="Sample">
 
                                     </div>
@@ -103,7 +102,6 @@
                                     <div class="d-flex justify-content-between cart-price-row">
                                         <div>
                                             <h5 class="cart-title-product" th:text="${item.name}">Name of phone</h5>
-                                            <!--                                                <p class="mb-2 text-uppercase small">Category: <span th:text="${item.category.name}"></span></p>-->
                                         </div>
                                         <div class="cart-product-price">
                                             <p class="mb-0 cart-title-product"><span>$<span th:text="${item.price}"></span></span></p>
@@ -116,7 +114,6 @@
                                                type="button"
                                                class="card-link-secondary small text-uppercase mr-3 cart-icons"><i
                                                     class="fas fa-trash-alt mr-1"></i> Remove item </a>
-
                                         </div>
                                     </div>
 
@@ -184,6 +181,7 @@
     </div>
 </main>
 <!--Main layout-->
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
