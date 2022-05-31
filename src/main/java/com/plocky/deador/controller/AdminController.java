@@ -23,7 +23,7 @@ import java.util.Optional;
 
 @Controller
 public class AdminController {
-    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
+    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages/";
     CategoryService categoryService;
     ProductService productService;
     OrderService orderService;
